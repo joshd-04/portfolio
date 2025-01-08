@@ -1,13 +1,11 @@
 'use client';
 import BlinkingCursor from '@/components/blinkingCursor';
 import SkillsTable from '@/components/skillsTable';
-import QuickButtons from './quickButtons';
 import Image from 'next/image';
 import MasteryGraph from '@/components/masteryGraph';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import WhoAmI from './whoAmI';
 import { userProfile } from '@/data';
-import Link from 'next/link';
 import BestProjects from './bestProjects';
 import ContactMe from './contactMe';
 import { Typewriter } from 'react-simple-typewriter';
