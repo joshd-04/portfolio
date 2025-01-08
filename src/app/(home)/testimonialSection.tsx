@@ -1,7 +1,7 @@
 import { userProfile } from '@/data';
 import { Testimonial } from '@/definitions';
 import Image from 'next/image';
-import { CSSProperties, JSX, useState } from 'react';
+import { CSSProperties, useState } from 'react';
 
 function Stars({ numberOfStars }: { numberOfStars: number }) {
   return (
