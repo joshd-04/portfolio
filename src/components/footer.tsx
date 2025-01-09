@@ -24,7 +24,15 @@ export default function Footer() {
   const thisYear = new Date().getFullYear();
 
   function openGithub() {
-    window.open(userProfile.githubURL);
+    if (window !== undefined) {
+      window.open(userProfile.githubURL);
+    }
+  }
+
+  function scrollToTop() {
+    if (window !== undefined) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   return (
@@ -62,13 +70,7 @@ export default function Footer() {
           <div>
             <h2 className="text-base text-gray-400">Lost?</h2>
             <div className="flex flex-col mt-1 gap-2 flex-wrap underline w-min">
-              <button
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-              >
-                Scroll to top
-              </button>
+              <button onClick={scrollToTop}>Scroll to top</button>
               <Link href="/">Home</Link>
               <Link href="/about">About me</Link>
               <Link href="/projects">All projects</Link>
