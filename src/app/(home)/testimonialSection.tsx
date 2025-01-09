@@ -33,12 +33,19 @@ interface CustomArrowProps {
 
 function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
   // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-  const isMdBreakpointMet = window.matchMedia('(min-width: 768px)').matches;
 
-  if (!isMdBreakpointMet)
-    return (
-      <button className="w-0 h-0 hidden" aria-hidden onClick={onClick}></button>
-    );
+  if (typeof window !== undefined) {
+    const isMdBreakpointMet = window.matchMedia('(min-width: 768px)').matches;
+    if (!isMdBreakpointMet)
+      return (
+        <button
+          className="w-0 h-0 hidden"
+          aria-hidden
+          onClick={onClick}
+        ></button>
+      );
+  }
+
   return (
     <button
       className="w-16 h-16 bg-black text-orange-500 z-20  rounded-full text-2xl font-extrabold hover:text-white hover:bg-gray-950 transition-all absolute top-[50%] translate-y-[-50%] right-0 scale-[0.5]  lg:scale-[1] shadow-2xl"
@@ -102,15 +109,11 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
 export default function TestimonialSection() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
-  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-  const isMdBreakpointMet = window.matchMedia('(min-width: 768px)').matches;
 
-  if (userProfile.testimonials.length === 0) return <></>;
-
-  const settings: Settings = {
+  let settings: Settings = {
     dots: true,
     infinite: true,
-    speed: isMdBreakpointMet ? 1000 : 600,
+    speed: 800,
     autoplay: true,
     autoplaySpeed: 5000,
     slidesToShow: 1,
@@ -127,6 +130,14 @@ export default function TestimonialSection() {
     afterChange: (i: number) => setTestimonialIndex(i),
     pauseOnHover: true,
   };
+
+  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
+  if (typeof window !== undefined) {
+    const isMdBreakpointMet = window.matchMedia('(min-width: 768px)').matches;
+    settings = { ...settings, speed: isMdBreakpointMet ? 1000 : 600 };
+  }
+
+  if (userProfile.testimonials.length === 0) return <></>;
 
   return (
     <div

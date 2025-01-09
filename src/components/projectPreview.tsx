@@ -11,7 +11,10 @@ export default function ProjectPreview({
 }) {
   const odd = i % 2 != 0;
   // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-  const isXlBreakpointMet = window.matchMedia('(min-width: 1280px)').matches;
+  let isXlBreakpointMet = false;
+  if (typeof window !== undefined) {
+    isXlBreakpointMet = window.matchMedia('(min-width: 1280px)').matches;
+  }
   return (
     <div className="relative h-auto w-auto flex flex-col xl:flex-row xl:odd:flex-row-reverse xl:mb-24 shrink-0 grow-0 xl:justify-end">
       <Image
