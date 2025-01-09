@@ -21,17 +21,17 @@ export default function Page() {
 
   return (
     <div className="h-max">
-      <div className="h-[100dvh] pt-32">
-        <div className="flex flex-row justify-center gap-44">
-          <div className="text-white ">
+      <div className="pt-16 md:pt-24 md:h-[100dvh] ">
+        <div className="flex flex-col items-center lg:flex-row lg:justify-center gap-20 lg:gap-36 ">
+          <div className="text-white w-[100dvw] place-items-center">
             <p className="text-gray-300 text-lg">Hi, my name is</p>
-            <h1 className="text-9xl uppercase font-bold">
+            <h1 className="text-7xl md:text-9xl uppercase font-bold">
               {userProfile.firstName}
               <br />
               {userProfile.lastName}
               <BlinkingCursor />
             </h1>
-            <h2 className="text-orange-500 text-3xl font-semibold pt-6 selection:text-orange-500 w-[30dvw] ">
+            <h2 className="text-orange-500 text-2xl md:text-3xl font-semibold pt-6 selection:text-orange-500 relative max-w-full place-self-center">
               <Typewriter
                 words={userProfile.typewriterText}
                 loop
@@ -50,39 +50,41 @@ export default function Page() {
           </p>
           <QuickButtons />
         </div> */}
-          <div className="">
-            <p className="text-gray-300 text-lg mb-4  text-center">
+          <div className="w-[100dvw] place-items-center">
+            <p className="text-gray-300 text-lg mb-[-5rem] md:mb-4  text-center">
               These are my favourite tools
             </p>
             <MasteryGraph />
           </div>
         </div>
         {/* downward pointing arrow bouncing */}
-        <div className="place-self-center left-[50%] top-[95%] animate-bounce absolute">
-          <Image
-            src="/home/down_arrow_white.png"
-            alt="Bouncing arrow pointing downwards"
-            width={50}
-            height={50}
-            onClick={scrollToWhoAmI}
-            className="cursor-pointer"
-          />
+        <div className="block md:hidden lg:block">
+          <div className="place-self-center md:left-[50%] md:top-[95%] animate-bounce md:absolute z-40">
+            <Image
+              src="/home/down_arrow_white.png"
+              alt="Bouncing arrow pointing downwards"
+              width={50}
+              height={50}
+              onClick={scrollToWhoAmI}
+              className="cursor-pointer"
+            />
+          </div>
         </div>
       </div>
-      <div ref={whoAmIRef} className="pt-16 ">
+      <div ref={whoAmIRef} id="who-am-i" className="pt-16 md:pt-96 lg:pt-12">
         <WhoAmI />
       </div>
       <BestProjects />
       <TestimonialSection />
       <ContactMe />
-      <div>
+      {/* <div>
         <div className="mt-16 ml-64">
           <p className="text-gray-300 text-xl mb-4 pl-6">
             A breif summary of my skills:
           </p>
           <SkillsTable />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

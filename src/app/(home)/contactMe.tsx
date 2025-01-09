@@ -22,7 +22,10 @@ export default function ContactMe() {
   }, [isCooldownActive]);
 
   return (
-    <div className="place-self-center  flex flex-col flex-grow-0 justify-center items-center relative w-full bg-black/20 py-16">
+    <div
+      id="contact"
+      className="place-self-center  flex flex-col flex-grow-0 justify-center items-center relative w-full bg-black/20 py-16"
+    >
       <h1 className="text-white text-6xl font-bold mb-2">Hire me!</h1>
       <h2 className="text-gray-300 text-2xl font-semibold">
         or Get in touch :)

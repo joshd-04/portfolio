@@ -26,6 +26,7 @@ export interface UserProfile {
   firstName: string;
   lastName: string;
   email: string;
+  githubURL: string;
   typewriterText: string[];
   whoAmI: string;
   testimonials: Testimonial[];

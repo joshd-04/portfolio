@@ -105,7 +105,9 @@ export const userProfile: UserProfile = {
     'Hire me :)',
   ],
   email: 'joshdyal04@gmail.com',
-  whoAmI: 'I am HIM',
+  githubURL: 'https://github.com/joshd-04',
+  whoAmI:
+    'I am HIM. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet exercitationem, quasi, assumenda illum sint voluptatem officiis repudiandae libero culpa consectetur quas quae, dolorum accusantium ea amet ab! Vitae, quasi est quam animi in quaerat accusamus. Quidem eligendi soluta odit provident cumque deserunt dignissimos! Dolore quaerat ipsam eos culpa ea laborum dolor temporibus expedita, ipsum fugit aut perspiciatis quam at esse excepturi praesentium dolores doloribus veniam velit placeat consequatur. Voluptatibus deserunt iste libero laboriosam officiis, voluptates rerum modi eligendi esse sunt provident ab officia non explicabo itaque illo similique. Doloremque tempore veritatis repellat culpa et, tempora repellendus praesentium nulla id porro?',
   testimonials: [
     {
       personsName: 'Mark Taylor',
@@ -146,10 +148,14 @@ export const projects: Project[] = [
   {
     title: 'Custom Developer Portfolio',
     summary:
-      'A website tailored to showcasing the skills, qualities and projects of a developer',
+      'A website tailored to shoailored to shoailored to shoailored to shoailored to shoailored to shoailored to showcasing the skills, qualities and projects of a developer',
     skillsUsed: [
       skills.TypeScript,
       skills.React,
+      skills.NextJS,
+      skills.TailwindCSS,
+      skills.NextJS,
+      skills.TailwindCSS,
       skills.NextJS,
       skills.TailwindCSS,
     ],

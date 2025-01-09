@@ -3,7 +3,7 @@ import { Competency, Mastery } from '@/definitions';
 
 export default function MasteryGraph() {
   return (
-    <div className="bg-black w-[44rem] h-max pb-8 relative z-0 rounded-xl py-4 px-6 shadow-2xl selection:bg-white selection:text-black">
+    <div className="bg-black w-[44rem] h-max pb-8 relative z-0 rounded-xl py-4 px-6 shadow-2xl selection:bg-white selection:text-black scale-[0.6] md:scale-[1] my-[-4rem] md:my-0">
       <GraphDivider leftRem={10.5}>EXPERIENCE:</GraphDivider>
       <GraphDivider leftRem={20.5}>Familiar</GraphDivider>
       <GraphDivider leftRem={30.5}>Proficient</GraphDivider>
