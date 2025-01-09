@@ -12,7 +12,7 @@ export default function ProjectPreview({
   const odd = i % 2 != 0;
   // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
   let isXlBreakpointMet = false;
-  if (typeof window !== undefined) {
+  if (typeof window !== 'undefined') {
     isXlBreakpointMet = window.matchMedia('(min-width: 1280px)').matches;
   }
   return (

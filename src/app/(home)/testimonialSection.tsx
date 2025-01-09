@@ -34,7 +34,7 @@ interface CustomArrowProps {
 function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
   // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
 
-  if (typeof window !== undefined) {
+  if (typeof window !== 'undefined') {
     const isMdBreakpointMet = window.matchMedia('(min-width: 768px)').matches;
     if (!isMdBreakpointMet)
       return (
@@ -132,7 +132,7 @@ export default function TestimonialSection() {
   };
 
   // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-  if (typeof window !== undefined) {
+  if (typeof window !== 'undefined') {
     const isMdBreakpointMet = window.matchMedia('(min-width: 768px)').matches;
     settings = { ...settings, speed: isMdBreakpointMet ? 1000 : 600 };
   }
