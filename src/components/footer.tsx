@@ -24,13 +24,13 @@ export default function Footer() {
   const thisYear = new Date().getFullYear();
 
   function openGithub() {
-    if (window !== undefined) {
+    if (typeof window !== undefined) {
       window.open(userProfile.githubURL);
     }
   }
 
   function scrollToTop() {
-    if (window !== undefined) {
+    if (typeof window !== undefined) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
