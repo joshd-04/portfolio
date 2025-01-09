@@ -1,6 +1,5 @@
 'use client';
 import BlinkingCursor from '@/components/blinkingCursor';
-import SkillsTable from '@/components/skillsTable';
 import Image from 'next/image';
 import MasteryGraph from '@/components/masteryGraph';
 import { useRef } from 'react';
