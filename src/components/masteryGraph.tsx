@@ -1,9 +1,11 @@
-import { masteryData } from '@/data';
+import masteryData from '@/edit_this_data/mastery';
 import { Competency, Mastery } from '@/definitions';
 
 export default function MasteryGraph() {
   return (
-    <div className="bg-black w-[44rem] h-max pb-8 relative z-0 rounded-xl py-4 px-6 shadow-2xl selection:bg-white selection:text-black scale-[0.6] md:scale-[1] my-[-4rem] md:my-0">
+    <div
+      className={`bg-black w-[44rem] pb-8 relative z-0 rounded-xl py-4 px-6 shadow-2xl selection:bg-white selection:text-black   my-[-4rem] md:my-0 scale-[0.5] sm:scale-[0.7] md:scale-[1]`}
+    >
       <GraphDivider leftRem={10.5}>EXPERIENCE:</GraphDivider>
       <GraphDivider leftRem={20.5}>Familiar</GraphDivider>
       <GraphDivider leftRem={30.5}>Proficient</GraphDivider>
@@ -35,7 +37,7 @@ function CompRow({ competency }: { competency: Competency }) {
   else if (competency.level <= 3) background = '#059af7';
 
   return (
-    <div className="align-middle mb-2 z-20">
+    <div className="align-middle mb-2 z-20 text-xl sm:text-base md:text-base">
       <p className="w-36 bg-white/5 text-white inline-block align-top z-20 rounded pl-2">
         {competency.name}
       </p>

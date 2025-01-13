@@ -1,4 +1,4 @@
-import { userProfile } from '@/data';
+import userProfile from '@/edit_this_data/userProfile';
 import { useEffect, useState } from 'react';
 
 export default function ContactMe() {
@@ -26,8 +26,10 @@ export default function ContactMe() {
       id="contact"
       className="place-self-center  flex flex-col flex-grow-0 justify-center items-center relative w-full bg-black/20 py-16"
     >
-      <h1 className="text-white text-6xl font-bold mb-2">Hire me!</h1>
-      <h2 className="text-gray-300 text-2xl font-semibold">
+      <h1 className="text-white text-4xl md:text-6xl font-bold mb-2">
+        Hire me!
+      </h1>
+      <h2 className="text-gray-300 text-xl md:text-2xl font-semibold">
         or Get in touch :)
       </h2>
       <button

@@ -1,12 +1,17 @@
 'use client';
 
-import { userProfile } from '@/data';
+import userProfile from '@/edit_this_data/userProfile';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function Footer() {
   const [isCooldownActive, setIsCooldownActive] = useState(false);
+  const [isWindowDefined, setIsWindowDefined] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') setIsWindowDefined(true);
+  }, []);
 
   function handleCopyEmail() {
     if (isCooldownActive) return;
@@ -22,21 +27,22 @@ export default function Footer() {
     }
   }, [isCooldownActive]);
   const thisYear = new Date().getFullYear();
+  // const thisYear = 2000;
 
   function openGithub() {
-    if (typeof window !== 'undefined') {
+    if (isWindowDefined) {
       window.open(userProfile.githubURL);
     }
   }
 
   function scrollToTop() {
-    if (typeof window !== 'undefined') {
+    if (isWindowDefined) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
   return (
-    <div className="w-[100dvw] h-[26rem] bg-black relative pt-10 text-white text-sm">
+    <div className="w-[100dvw] h-auto bg-black relative py-10 text-white text-sm ">
       <div className="w-[80%] md:w-[50%] h-full place-self-center">
         <h1 className="text-base mb-2">
           I hope you enjoyed viewing this portfolio :)
@@ -72,7 +78,7 @@ export default function Footer() {
             <div className="flex flex-col mt-1 gap-2 flex-wrap underline w-min">
               <button onClick={scrollToTop}>Scroll to top</button>
               <Link href="/">Home</Link>
-              <Link href="/about">About me</Link>
+              <Link href="/who-am-i">About me</Link>
               <Link href="/projects">All projects</Link>
               <Link href="/#testimonials">Testimonials</Link>
               <Link href="/#contact">Contact</Link>

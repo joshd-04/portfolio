@@ -1,7 +1,9 @@
-import { userProfile } from '@/data';
+'use client';
+
+import userProfile from '@/edit_this_data/userProfile';
 import { Testimonial } from '@/definitions';
 import Image from 'next/image';
-import { CSSProperties, Suspense, useState } from 'react';
+import { CSSProperties, Suspense, useEffect, useState } from 'react';
 
 import React from 'react';
 import Slider, { Settings } from 'react-slick';
@@ -32,19 +34,19 @@ interface CustomArrowProps {
 }
 
 function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
+  const [isMdBreakpointMet, setIsMdBreakpointMet] = useState<
+    boolean | undefined
+  >(undefined);
   // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-
-  if (typeof window !== 'undefined') {
-    const isMdBreakpointMet = window.matchMedia('(min-width: 768px)').matches;
-    if (!isMdBreakpointMet)
-      return (
-        <button
-          className="w-0 h-0 hidden"
-          aria-hidden
-          onClick={onClick}
-        ></button>
-      );
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMdBreakpointMet(window.matchMedia('(min-width: 768px)').matches);
+    }
+  }, []);
+  if (!isMdBreakpointMet)
+    return (
+      <button className="w-0 h-0 hidden" aria-hidden onClick={onClick}></button>
+    );
 
   return (
     <button
@@ -84,18 +86,18 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           />
         </Suspense>
 
-        <blockquote className="lg:text-xl italic text-center pr-2 mt-3 ">
+        <blockquote className="text-sm md:text-xl italic text-center pr-2 mt-3 ">
           {`${testimonial.review}"`}
         </blockquote>
       </div>
-      <div className="flex flex-row gap-4 justify-center w-full">
+      <div className="flex flex-row gap-4 justify-center items-center w-full grow-0 shrink-0">
         <Suspense fallback={<div className="w-[3.75] h-[3.75] "></div>}>
           <Image
             src={testimonial.personsImageURL}
             alt={`${testimonial.personsName}`}
             width={60}
             height={60}
-            className="rounded-full aspect-square m-2 mr-0 md:m-0"
+            className="rounded-full aspect-square m-2 mr-0 md:m-0 self-auto h-auto w-auto"
           />
         </Suspense>
         <div className="flex flex-col justify-center">
@@ -109,6 +111,16 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
 export default function TestimonialSection() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [isMdBreakpointMet, setIsMdBreakpointMet] = useState<
+    boolean | undefined
+  >(undefined);
+  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMdBreakpointMet(window.matchMedia('(min-width: 768px)').matches);
+    }
+  }, []);
 
   let settings: Settings = {
     dots: true,
@@ -131,23 +143,19 @@ export default function TestimonialSection() {
     pauseOnHover: true,
   };
 
-  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-  if (typeof window !== 'undefined') {
-    const isMdBreakpointMet = window.matchMedia('(min-width: 768px)').matches;
-    settings = { ...settings, speed: isMdBreakpointMet ? 1000 : 600 };
-  }
+  settings = { ...settings, speed: isMdBreakpointMet ? 1000 : 600 };
 
   if (userProfile.testimonials.length === 0) return <></>;
 
   return (
     <div
       id="testimonials"
-      className="place-items-center align-middle my-16 w-full relative"
+      className="place-items-center align-middle my-16 w-full relative "
     >
-      <h1 className="text-4xl text-white font-bold mb-2">
+      <h1 className="text-3xl md:text-4xl text-white font-bold mb-2">
         Still not convinced?
       </h1>
-      <h2 className="text-2xl text-gray-300 font-medium px-8 lg:px-0 text-center">
+      <h2 className="text-xl md:text-2xl text-gray-300 font-medium px-8 lg:px-0 text-center">
         See why people{' '}
         <span className="bg-red-600 px-2 py-1 rounded-lg selection:bg-white selection:text-red-600 text-gray-200 font-bold">
           love
