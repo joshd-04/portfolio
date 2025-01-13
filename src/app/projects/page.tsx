@@ -5,16 +5,8 @@ import SkillsTable from '@/components/skillsTable';
 import { Project, Skill } from '@/definitions';
 import projects from '@/edit_this_data/projects';
 import Image from 'next/image';
-import { createContext, useEffect, useState } from 'react';
-
-export interface ISkillsTableContext {
-  onSkillClick: (skill: Skill) => void;
-  enabledFilters: Skill[];
-}
-
-export const SkillsTableContext = createContext<ISkillsTableContext | null>(
-  null
-);
+import { useEffect, useState } from 'react';
+import { SkillsTableContext } from './pageDefinitions';
 
 export default function Page() {
   const [isShowFilters, setIsShowFilters] = useState(false);

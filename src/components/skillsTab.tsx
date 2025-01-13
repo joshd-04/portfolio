@@ -1,4 +1,4 @@
-import { SkillsTableContext } from '@/app/projects/page';
+import { SkillsTableContext } from '@/app/projects/pageDefinitions';
 import { Skill } from '@/definitions';
 import { decideTextColor } from '@/util/text_to_bg_contrast';
 import { useContext, useState } from 'react';
