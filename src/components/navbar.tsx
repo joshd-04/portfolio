@@ -1,31 +1,31 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+// import Link from 'next/link';
+// import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-function NavBarLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  const pathname = usePathname();
-  const isActive = pathname == href;
+// function NavBarLink({
+//   href,
+//   children,
+// }: {
+//   href: string;
+//   children: React.ReactNode;
+// }) {
+//   const pathname = usePathname();
+//   const isActive = pathname == href;
 
-  const fontWeight = isActive ? 'font-semibold' : 'font-normal';
-  const opacity = isActive ? 'opacity-100' : 'opacity-50';
+//   const fontWeight = isActive ? 'font-semibold' : 'font-normal';
+//   const opacity = isActive ? 'opacity-100' : 'opacity-50';
 
-  return (
-    <Link
-      href={href}
-      className={`text-orange-500 hover:text-orange-400 hover:opacity-100 transition-all py-6 last-of-type:pr-0 first-of-type:pl-4 md:last-of-type:pr-24 ${fontWeight} ${opacity} selection:text-orange-500 text-sm md:text-lg`}
-    >
-      {children}
-    </Link>
-  );
-}
+//   return (
+//     <Link
+//       href={href}
+//       className={`text-orange-500 hover:text-orange-400 hover:opacity-100 transition-all py-6 last-of-type:pr-0 first-of-type:pl-4 md:last-of-type:pr-24 ${fontWeight} ${opacity} selection:text-orange-500 text-sm md:text-lg`}
+//     >
+//       {children}
+//     </Link>
+//   );
+// }
 
 function NavBarScrollButton({
   id,
