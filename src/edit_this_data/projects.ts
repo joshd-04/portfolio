@@ -14,9 +14,9 @@ const projects: Project[] = [
       skills.NextJS,
       skills.TailwindCSS,
       skills.NextJS,
-      skills.TailwindCSS,
+      skills.HTML,
     ],
-    previewImgURL: '/projects/preview.png',
+    previewImgURL: '/edit_these_assets/projects/preview.png',
   },
   {
     title: 'Custom Developer Portfolio',
@@ -28,7 +28,7 @@ const projects: Project[] = [
       skills.NextJS,
       skills.TailwindCSS,
     ],
-    previewImgURL: '/projects/preview.png',
+    previewImgURL: '/edit_these_assets/projects/preview.png',
   },
   {
     title: 'Custom Developer Portfolio',
@@ -40,7 +40,7 @@ const projects: Project[] = [
       skills.NextJS,
       skills.TailwindCSS,
     ],
-    previewImgURL: '/projects/preview.png',
+    previewImgURL: '/edit_these_assets/projects/preview.png',
   },
   {
     title: 'Custom Developer Portfolio',
@@ -52,7 +52,7 @@ const projects: Project[] = [
       skills.NextJS,
       skills.TailwindCSS,
     ],
-    previewImgURL: '/projects/preview.png',
+    previewImgURL: '/edit_these_assets/projects/preview.png',
   },
 ];
 export default projects;

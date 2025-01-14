@@ -31,13 +31,13 @@ export default function ProjectPreview({
         alt={`A preview image of ${project.title}`}
         width={527}
         height={400}
-        className="rounded-lg hidden xl:flex"
+        className="rounded-lg hidden xl:flex brightness-[.75] hover:brightness-100 transition-[filter] duration-300"
         style={{ objectFit: 'cover' }}
       />
       {/* className="w-[60%] h-max bg-gray-950 px-8 py-6 rounded-lg outline-black outline outline-2 mb-24 shadow-2xl absolute top:0 translate-y-[50%] selection:bg-white selection:text-gray-950 " */}
 
       <div
-        className="w-full xl:w-[60%] h-max bg-gray-950 xl:px-8 xl:py-6 rounded-lg outline-black outline outline-2 xl:mb-24 shadow-2xl xl:absolute xl:transform xl:top-[50%] xl:translate-y-[-50%] selection:bg-white selection:text-gray-950"
+        className="w-full xl:w-[60%] h-max bg-gray-950 xl:px-8 xl:py-6 rounded-lg outline-black outline outline-2 xl:mb-24 shadow-2xl xl:absolute xl:transform xl:top-[50%] xl:translate-y-[-50%] selection:bg-white selection:text-gray-950 md:hover:bg-[rgb(5,15,28)] md:transition-colors md:duration-300"
         style={{
           left: odd && isXlBreakpointMet ? 0 : undefined,
           right: odd && isXlBreakpointMet ? undefined : 0,

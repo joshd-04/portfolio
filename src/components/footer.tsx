@@ -78,8 +78,8 @@ export default function Footer() {
             <div className="flex flex-col mt-1 gap-2 flex-wrap underline w-min">
               <button onClick={scrollToTop}>Scroll to top</button>
               <Link href="/">Home</Link>
-              <Link href="/who-am-i">About me</Link>
-              <Link href="/projects">All projects</Link>
+              <Link href="/#who-am-i">About me</Link>
+              <Link href="/#featured-projects">Featured projects</Link>
               <Link href="/#testimonials">Testimonials</Link>
               <Link href="/#contact">Contact</Link>
             </div>

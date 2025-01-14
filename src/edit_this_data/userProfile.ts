@@ -3,6 +3,7 @@ import { UserProfile } from '@/definitions';
 const userProfile: UserProfile = {
   firstName: 'Josh',
   lastName: 'Dyal',
+  profilePictureURL: '/edit_these_assets/me/pfp.png',
   typewriterText: [
     'An aspiring software engineer',
     "Let's work together!",
@@ -15,7 +16,7 @@ const userProfile: UserProfile = {
   testimonials: [
     {
       personsName: 'Mark Taylor',
-      personsImageURL: '/home/pfp.png',
+      personsImageURL: '/edit_these_assets/testimonials/pfp.png',
       personsRole: 'CEO, TechStartup',
       numberOfStarsRating: 5,
       review:
@@ -23,7 +24,7 @@ const userProfile: UserProfile = {
     },
     {
       personsName: 'Jane Smith',
-      personsImageURL: '/home/pfp.png',
+      personsImageURL: '/edit_these_assets/testimonials/pfp.png',
       personsRole: 'Software Engineer, TechNova Solutions',
       numberOfStarsRating: 5,
       review:
@@ -31,7 +32,7 @@ const userProfile: UserProfile = {
     },
     {
       personsName: 'Michael Brown',
-      personsImageURL: '/home/pfp.png',
+      personsImageURL: '/edit_these_assets/testimonials/pfp.png',
       personsRole: 'Project Manager, InnovateCorp',
       numberOfStarsRating: 5,
       review:
@@ -39,7 +40,7 @@ const userProfile: UserProfile = {
     },
     {
       personsName: 'Emily Davis',
-      personsImageURL: '/home/pfp.png',
+      personsImageURL: '/edit_these_assets/testimonials/pfp.png',
       personsRole: 'CTO, CodeCraft Systems',
       numberOfStarsRating: 5,
       review:

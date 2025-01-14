@@ -25,6 +25,7 @@ export interface Competency {
 export interface UserProfile {
   firstName: string;
   lastName: string;
+  profilePictureURL: string;
   email: string;
   githubURL: string;
   typewriterText: string[];
