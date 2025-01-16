@@ -8,7 +8,7 @@ const projects: Project[] = [
     title: 'Custom Developer Portfolio',
     projectAccentColor: '#FFA500',
     summary:
-      'An important website with the task of expressing the qualities and skills of a developer, tailored to their custom projects. [this needs changing later]',
+      'A sleek and responsive NextJS web-app designed to showcase a developers skills, projects and achievements. It features a clean UI/UX design and optimised performance that serves as an impactful tool for networking and personal branding in the tech industry.',
     skillsUsed: [
       skills.TypeScript,
       skills.React,
@@ -22,27 +22,41 @@ const projects: Project[] = [
     previewImgURL: `/edit_these_assets/projects/custom portfolio/custom portfolio left side.png`,
     bannerImgURL: undefined,
     imageSliderURLs: [
-      // {
-      //   imageURL:
-      //     '/edit_these_assets/projects/custom /scroller/task-creation.png',
-      //   alt: 'Task creation (dark theme)',
-      //   width: 500,
-      //   height: 500,
-      // },
-      // {
-      //   imageURL:
-      //     '/edit_these_assets/projects/custom /scroller/task-in-progress.png',
-      //   alt: 'Task in progress (dark theme)',
-      //   width: 500,
-      //   height: 500,
-      // },
-      // {
-      //   imageURL:
-      //     '/edit_these_assets/projects/timed todo/scroller/light-theme.png',
-      //   alt: 'Website in light theme',
-      //   width: 500,
-      //   height: 500,
-      // },
+      {
+        imageURL:
+          '/edit_these_assets/projects/custom portfolio/scroller/name-mastery.png',
+        alt: "Developer's name and mastery graph",
+        width: 500,
+        height: 500,
+      },
+      {
+        imageURL:
+          '/edit_these_assets/projects/custom portfolio/scroller/about.png',
+        alt: 'About the developer section',
+        width: 500,
+        height: 500,
+      },
+      {
+        imageURL:
+          '/edit_these_assets/projects/custom portfolio/scroller/projects.png',
+        alt: 'Projects listing',
+        width: 500,
+        height: 500,
+      },
+      {
+        imageURL:
+          '/edit_these_assets/projects/custom portfolio/scroller/testimonial.png',
+        alt: 'Testimonial section',
+        width: 500,
+        height: 500,
+      },
+      {
+        imageURL:
+          '/edit_these_assets/projects/custom portfolio/scroller/project-details.png',
+        alt: 'Details of project',
+        width: 500,
+        height: 500,
+      },
     ],
     description: [
       {
@@ -108,7 +122,7 @@ const projects: Project[] = [
     title: 'Timed Todo List',
     projectAccentColor: '#15FC15',
     summary:
-      'A utility website aimed at helping users complete chores and tasks within time limits. Time control functionality allows flexibility within your workflow, with a live countdown and status tab to keep you upto date across all your duties.',
+      'A utility website aimed at assisting users complete chores and tasks within time limits. Time control functionality allows flexibility within your workflow, with a live countdown and status tab to keep you upto date across all your duties.',
     skillsUsed: [skills.TypeScript, skills.React, skills.CSS, skills.Netlify],
     // left side for odd id, right side for even id
     previewImgURL: `/edit_these_assets/projects/timed todo/timed todo right side.png`,

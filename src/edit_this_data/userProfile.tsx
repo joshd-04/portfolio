@@ -22,12 +22,12 @@ const userProfile: UserProfile = {
       }}
     >
       <p className="">
-        I&apos;m an eager software engineer with vast experience in full-stack
-        web development.
+        I&apos;m an eager software engineer with most my experience being in
+        full-stack web development.
       </p>
       <p className="">
         My passion for programming started when I wrote my first HTML page aged
-        12, since then I spent 5 years learning numerous languages and
+        12, since then I spent 5 years learning 3+ languages and countless
         frameworks to give me a range of tools to work from, whilst creating
         small projects along the way.
       </p>
@@ -37,8 +37,8 @@ const userProfile: UserProfile = {
         give me more experience.
       </p>
       <p className="">
-        I aspire to become a blockchain developer in the future, delivering next
-        generation security in the projects and software I write.
+        I aspire to become a blockchain developer in the future, as I am
+        passionate about creating transparent and secure digital solutions.
       </p>
       <p className="">
         When I&apos;m not coding, you&apos;ll find me watching football,
@@ -57,36 +57,20 @@ const userProfile: UserProfile = {
   // ],
   testimonials: [
     {
-      personsName: 'Mark Taylor',
+      personsName: 'Computer Science Teacher',
       personsImageURL: '/edit_these_assets/testimonials/pfp.png',
-      personsRole: 'CEO, TechStartup',
+      personsRole: 'Former GCSE Computer Science Teacher',
       numberOfStarsRating: 5,
       review:
-        'John Doe exceeded my expectations! Their attention to detail and coding expertise brought our project to life seamlessly. Highly recommended!',
+        'Joshua is a very bright student, he has an incredible knowledge of Python and is proficient in using it to create all sorts of programs. He is inquisitive which is great for his learning and helps him make quick progress.',
     },
     {
-      personsName: 'Jane Smith',
+      personsName: 'Computer Science Teacher',
       personsImageURL: '/edit_these_assets/testimonials/pfp.png',
-      personsRole: 'Software Engineer, TechNova Solutions',
+      personsRole: 'Former GCSE Computer Science Teacher',
       numberOfStarsRating: 5,
       review:
-        'John Doe went above and beyond my expectations! Their precision and coding skills turned our project into a flawless success. I couldn’t recommend them more highly.',
-    },
-    {
-      personsName: 'Michael Brown',
-      personsImageURL: '/edit_these_assets/testimonials/pfp.png',
-      personsRole: 'Project Manager, InnovateCorp',
-      numberOfStarsRating: 5,
-      review:
-        'Working with John Doe was a fantastic experience. Their sharp eye for detail and exceptional coding abilities made our project come together effortlessly. Truly a professional I would recommend to anyone!',
-    },
-    {
-      personsName: 'Emily Davis',
-      personsImageURL: '/edit_these_assets/testimonials/pfp.png',
-      personsRole: 'CTO, CodeCraft Systems',
-      numberOfStarsRating: 5,
-      review:
-        'John Doe’s expertise and meticulous approach to coding were outstanding. They delivered a seamless result that exceeded all my expectations. Highly endorse their work!',
+        'Joshua is a very bright student, he has an incredible knowledge of Python and is proficient in using it to create all sorts of programs. He is inquisitive which is great for his learning and helps him make quick progress.',
     },
   ],
 };
