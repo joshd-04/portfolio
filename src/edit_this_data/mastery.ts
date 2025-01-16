@@ -7,7 +7,7 @@ const masteryData: Mastery[] = [
       { name: 'HTML & CSS', level: 3 },
       { name: 'JavaScript', level: 3 },
       { name: 'TypeScript', level: 3 },
-      { name: 'React', level: 3 },
+      { name: 'React', level: 2 },
       { name: 'NextJS', level: 2 },
       { name: 'TailwindCSS', level: 2 },
     ],

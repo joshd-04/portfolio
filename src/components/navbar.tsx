@@ -1,31 +1,25 @@
 'use client';
 
-// import Link from 'next/link';
-// import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-// function NavBarLink({
-//   href,
-//   children,
-// }: {
-//   href: string;
-//   children: React.ReactNode;
-// }) {
-//   const pathname = usePathname();
-//   const isActive = pathname == href;
-
-//   const fontWeight = isActive ? 'font-semibold' : 'font-normal';
-//   const opacity = isActive ? 'opacity-100' : 'opacity-50';
-
-//   return (
-//     <Link
-//       href={href}
-//       className={`text-orange-500 hover:text-orange-400 hover:opacity-100 transition-all py-6 last-of-type:pr-0 first-of-type:pl-4 md:last-of-type:pr-24 ${fontWeight} ${opacity} selection:text-orange-500 text-sm md:text-lg`}
-//     >
-//       {children}
-//     </Link>
-//   );
-// }
+function NavBarLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`text-orange-500 hover:text-orange-400 hover:opacity-100 transition-all py-6 last-of-type:pr-0 first-of-type:pl-4 md:last-of-type:pr-24 selection:text-orange-500 text-sm md:text-lg`}
+    >
+      {children}
+    </Link>
+  );
+}
 
 function NavBarScrollButton({
   id,
@@ -45,7 +39,7 @@ function NavBarScrollButton({
     if (element) {
       const rect = element.getBoundingClientRect();
       const distanceFromTop = rect.top + window.scrollY;
-      return distanceFromTop;
+      return distanceFromTop - 100;
     }
     return undefined;
   };
@@ -68,7 +62,12 @@ function NavBarScrollButton({
 }
 
 export default function NavBar() {
+  // If the user is on the home page, we want to display buttons to smoothly scroll
+  // Otherwise display a Link to the home page
   const [navbarBg, setNavbarBg] = useState('bg-slate-800/20');
+  const pathname = usePathname();
+
+  const displayHomeLink = pathname !== '/';
 
   useEffect(() => {
     function handleScroll() {
@@ -90,10 +89,20 @@ export default function NavBar() {
       className={`w-screen ${navbarBg} drop-shadow-2xl flex flex-row gap-4 sm:gap-12 justify-center md:justify-end items-center sticky top-0 right-0 transition-all z-[90] `}
     >
       {/* <NavBarScrollButton id="/">Home</NavBarScrollButton> */}
-      <NavBarScrollButton id="who-am-i">About</NavBarScrollButton>
-      <NavBarScrollButton id="featured-projects">Projects</NavBarScrollButton>
-      <NavBarScrollButton id="testimonials">Testimonials</NavBarScrollButton>
-      <NavBarScrollButton id="contact">Contact</NavBarScrollButton>
+      {displayHomeLink ? (
+        <NavBarLink href="/">Home</NavBarLink>
+      ) : (
+        <>
+          <NavBarScrollButton id="who-am-i">About</NavBarScrollButton>
+          <NavBarScrollButton id="featured-projects">
+            Projects
+          </NavBarScrollButton>
+          <NavBarScrollButton id="testimonials">
+            Testimonials
+          </NavBarScrollButton>
+          <NavBarScrollButton id="contact">Contact</NavBarScrollButton>
+        </>
+      )}
     </div>
   );
 }

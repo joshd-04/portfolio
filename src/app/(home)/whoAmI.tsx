@@ -1,5 +1,6 @@
 import userProfile from '@/edit_this_data/userProfile';
 import Image from 'next/image';
+import React from 'react';
 
 export default function WhoAmI() {
   return (
@@ -15,9 +16,9 @@ export default function WhoAmI() {
         <h1 className="text-4xl text-white font-bold mb-4 ">
           Who am I<span className="text-orange-600">?</span>
         </h1>
-        <p className="text-gray-200 text-sm md:text-xl min-h-48">
-          {userProfile.whoAmI}
-        </p>
+        <div className="text-gray-200 text-sm md:text-lg/6 min-h-48">
+          {userProfile.whoAmIJSX}
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+import { JSX } from 'react';
+
 export interface Skill {
   value: string;
   color: string;
@@ -29,15 +31,39 @@ export interface UserProfile {
   email: string;
   githubURL: string;
   typewriterText: string[];
-  whoAmI: string;
+  whoAmIJSX: JSX.Element;
   testimonials: Testimonial[];
 }
 
 export interface Project {
+  id: number;
   title: string;
+  projectAccentColor: string;
   summary: string;
   skillsUsed: Skill[];
   previewImgURL: string;
+  bannerImgURL: string | undefined;
+  imageSliderURLs: ProjectSliderImage[];
+  description: ProjectDescriptionSection[];
+  quickLinks: ProjectQuickLink[];
+  projectDate: Date;
+}
+
+export interface ProjectSliderImage {
+  imageURL: string;
+  alt: string;
+  height: number | `${number}` | undefined;
+  width: number | `${number}` | undefined;
+}
+
+export interface ProjectDescriptionSection {
+  sectionName: string;
+  body: JSX.Element;
+}
+
+export interface ProjectQuickLink {
+  title: string;
+  externalURL: string;
 }
 
 export interface Testimonial {

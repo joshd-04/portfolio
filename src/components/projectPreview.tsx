@@ -4,6 +4,7 @@ import { Project } from '@/definitions';
 import SkillTab from './skillsTab';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function ProjectPreview({
   project,
@@ -25,7 +26,10 @@ export default function ProjectPreview({
     }
   }, []);
   return (
-    <div className="relative h-auto w-auto flex flex-col xl:flex-row xl:odd:flex-row-reverse xl:mb-24 shrink-0 grow-0 xl:justify-end">
+    <Link
+      href={`/projects/${project.id}`}
+      className="relative h-auto w-auto flex flex-col xl:flex-row xl:odd:flex-row-reverse xl:mb-24 shrink-0 grow-0 xl:justify-end  transition-all duration-500"
+    >
       <Image
         src={project.previewImgURL}
         alt={`A preview image of ${project.title}`}
@@ -37,7 +41,7 @@ export default function ProjectPreview({
       {/* className="w-[60%] h-max bg-gray-950 px-8 py-6 rounded-lg outline-black outline outline-2 mb-24 shadow-2xl absolute top:0 translate-y-[50%] selection:bg-white selection:text-gray-950 " */}
 
       <div
-        className="w-full xl:w-[60%] h-max bg-gray-950 xl:px-8 xl:py-6 rounded-lg outline-black outline outline-2 xl:mb-24 shadow-2xl xl:absolute xl:transform xl:top-[50%] xl:translate-y-[-50%] selection:bg-white selection:text-gray-950 md:hover:bg-[rgb(5,15,28)] md:transition-colors md:duration-300"
+        className="w-full xl:w-[60%] h-max bg-gray-950 xl:px-8 xl:py-6 rounded-lg outline-black outline outline-2 xl:mb-24 shadow-2xl xl:absolute xl:transform xl:top-[50%] xl:translate-y-[-50%] selection:bg-white selection:text-gray-950 md:hover:bg-[rgb(5,15,28)] md:transition-all md:duration-300"
         style={{
           left: odd && isXlBreakpointMet ? 0 : undefined,
           right: odd && isXlBreakpointMet ? undefined : 0,
@@ -64,7 +68,9 @@ export default function ProjectPreview({
                 {project.summary}{' '}
                 <button
                   className="font-semibold hover:underline text-orange-500"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     setIsShowFullDescription(false);
                   }}
                 >
@@ -76,7 +82,9 @@ export default function ProjectPreview({
                 {project.summary.slice(0, 70)}...{' '}
                 <button
                   className="font-semibold hover:underline text-orange-500"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     setIsShowFullDescription(true);
                   }}
                 >
@@ -92,6 +100,6 @@ export default function ProjectPreview({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

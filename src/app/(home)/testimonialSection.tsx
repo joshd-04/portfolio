@@ -33,7 +33,7 @@ interface CustomArrowProps {
   leftOrRight: 'left' | 'right';
 }
 
-function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
+export function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
   const [isMdBreakpointMet, setIsMdBreakpointMet] = useState<
     boolean | undefined
   >(undefined);
