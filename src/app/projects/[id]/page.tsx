@@ -10,7 +10,7 @@ import ProjectDetailsSkeleton from './projectDetailsSkeleton';
 export default function Page() {
   const [project, setProject] = useState<Project | undefined>(undefined);
 
-  const id: string | string[] | undefined | number = useParams().id;
+  const id: string | string[] | undefined | number | null = useParams()?.id;
 
   // Get the project on mount
   useEffect(() => {
