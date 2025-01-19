@@ -11,15 +11,21 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-function Stars({ numberOfStars }: { numberOfStars: number }) {
+function Stars({
+  numberOfStars,
+  isMdBreakpointMet,
+}: {
+  numberOfStars: number;
+  isMdBreakpointMet: boolean | undefined;
+}) {
   return (
     <div className="flex flex-row gap-0">
       {Array.from({ length: numberOfStars }).map((_, i) => (
         <Image
           src="/home/star.png"
           alt="Golden star"
-          width={30}
-          height={30}
+          width={isMdBreakpointMet ? 30 : 20}
+          height={isMdBreakpointMet ? 30 : 20}
           key={i}
         />
       ))}
@@ -37,12 +43,33 @@ export function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
   const [isMdBreakpointMet, setIsMdBreakpointMet] = useState<
     boolean | undefined
   >(undefined);
+
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    function handleResize(e: Event) {
+      if (e.target && typeof window !== 'undefined') {
+        const target = e.target as Window;
+        setWindowWidth(target.outerWidth);
+      }
+    }
+    if (windowWidth === undefined && typeof window !== 'undefined') {
+      setWindowWidth(window.screen.width);
+    }
+    if (typeof window !== 'undefined' && windowWidth !== undefined) {
+      window.addEventListener('resize', handleResize);
+
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, [windowWidth]);
+
   // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setIsMdBreakpointMet(window.matchMedia('(min-width: 768px)').matches);
-    }
-  }, []);
+    if (typeof windowWidth !== 'undefined' && windowWidth >= 768) {
+      setIsMdBreakpointMet(true);
+    } else setIsMdBreakpointMet(false);
+  }, [windowWidth]);
+
   if (!isMdBreakpointMet)
     return (
       <button className="w-0 h-0 hidden" aria-hidden onClick={onClick}></button>
@@ -63,46 +90,57 @@ export function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
   );
 }
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+function TestimonialCard({
+  testimonial,
+  isMdBreakpointMet,
+}: {
+  testimonial: Testimonial;
+  isMdBreakpointMet: boolean | undefined;
+}) {
   return (
     <div
-      className="w-[90%] bg-gray-950 hover:bg-gray-950/90 transition-colors outline outline-2 outline-black m-2 place-self-center rounded-xl text-white flex flex-col justify-evenly items-center px-8 pt-12 pb-8 gap-8 aspect-[86/37] "
+      className="w-[90%] bg-gray-950 hover:bg-gray-950/90 transition-colors outline outline-2 outline-black m-2 place-self-center rounded-xl text-white flex flex-col justify-evenly items-center px-4 pt-6 pb-4 md:px-8 md:pt-12 md:pb-8 gap-2 md:gap-8 aspect-[86/37] "
       // style={{
       //   // transform: `translateX(-${1 * testimonialIndex}50%)`,
       //   opacity: testimonialIndex === cardIndex ? '1' : '0.2',
       // }}
     >
       <div className="z-10 drop-shadow-[0_0_5px_rgb(255,215,0)]">
-        <Stars numberOfStars={testimonial.numberOfStarsRating} />
+        <Stars
+          numberOfStars={testimonial.numberOfStarsRating}
+          isMdBreakpointMet={isMdBreakpointMet}
+        />
       </div>
       <div className="place-items-center">
         <Suspense fallback={<div className="w-[2.5] h-[2.5] bg-red-500"></div>}>
           <Image
             src="/home/singlequote.png"
-            width={40}
-            height={40}
+            width={isMdBreakpointMet ? 40 : 20}
+            height={isMdBreakpointMet ? 40 : 20}
             alt="Orange quote marks"
-            className="z-10 drop-shadow-[0_0_5px_rgb(249,115,22)]"
+            className="z-10 drop-shadow-[0_0_5px_rgb(249,115,22)] "
           />
         </Suspense>
 
-        <blockquote className="text-sm md:text-xl italic text-center pr-2 mt-3 ">
+        <blockquote className="text-xs md:text-xl italic text-center pr-2 mt-3 ">
           {`${testimonial.review}"`}
         </blockquote>
       </div>
-      <div className="flex flex-row gap-4 justify-center items-center w-full grow-0 shrink-0">
+      <div className="flex flex-row gap-4 justify-center items-center w-full grow-0 shrink-0 ">
         <Suspense fallback={<div className="w-[3.75] h-[3.75] "></div>}>
           <Image
             src={testimonial.personsImageURL}
             alt={`${testimonial.personsName}`}
-            width={60}
-            height={60}
+            width={isMdBreakpointMet ? 60 : 30}
+            height={isMdBreakpointMet ? 60 : 30}
             className="rounded-full aspect-square m-2 mr-0 md:m-0 self-auto h-auto w-auto"
           />
         </Suspense>
         <div className="flex flex-col justify-center">
-          <p className="text-xl">{testimonial.personsName}</p>
-          <p className="text-sm text-gray-300">{testimonial.personsRole}</p>
+          <p className="text-sm md:text-xl">{testimonial.personsName}</p>
+          <p className="text-xs md:text-sm text-gray-300">
+            {testimonial.personsRole}
+          </p>
         </div>
       </div>
     </div>
@@ -167,7 +205,13 @@ export default function TestimonialSection() {
         <div className="place-self-center relative w-[80%] lg:w-[50%] drop-shadow-2xl">
           <Slider {...settings}>
             {userProfile.testimonials.map((t, i) => {
-              return <TestimonialCard testimonial={t} key={i} />;
+              return (
+                <TestimonialCard
+                  testimonial={t}
+                  key={i}
+                  isMdBreakpointMet={isMdBreakpointMet}
+                />
+              );
             })}
           </Slider>
         </div>

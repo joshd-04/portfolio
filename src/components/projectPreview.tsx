@@ -19,32 +19,71 @@ export default function ProjectPreview({
     boolean | undefined
   >(undefined);
   const [isShowFullDescription, setIsShowFullDescription] = useState(false);
+  const [isHoveringImage, setIsHoveringImage] = useState(false);
+  const [opaqueProjectCard, setOpaqueProjectCard] = useState(false);
+
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setIsXlBreakpointMet(window.matchMedia('(min-width: 1280px)').matches);
+    function handleResize(e: Event) {
+      if (e.target && typeof window !== 'undefined') {
+        const target = e.target as Window;
+        setWindowWidth(target.outerWidth);
+      }
     }
-  }, []);
+    if (windowWidth === undefined && typeof window !== 'undefined') {
+      setWindowWidth(window.screen.width);
+    }
+    if (typeof window !== 'undefined' && windowWidth !== undefined) {
+      window.addEventListener('resize', handleResize);
+
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, [windowWidth]);
+
+  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
+  useEffect(() => {
+    if (typeof windowWidth !== 'undefined' && windowWidth >= 1280) {
+      setIsXlBreakpointMet(true);
+    } else setIsXlBreakpointMet(false);
+  }, [windowWidth]);
+
+  useEffect(() => {
+    if (isHoveringImage === true) {
+      const timer = setTimeout(() => {
+        setOpaqueProjectCard(true);
+        console.log('TIMER DONE');
+      }, 500);
+      return () => clearTimeout(timer);
+    } else {
+      setOpaqueProjectCard(false);
+    }
+  }, [isHoveringImage]);
+
   return (
     <Link
       href={`/projects/${project.id}`}
-      className="relative h-auto w-auto flex flex-col xl:flex-row xl:odd:flex-row-reverse xl:mb-24 shrink-0 grow-0 xl:justify-end  transition-all duration-500"
+      className="relative h-auto w-auto flex flex-col xl:flex-row xl:odd:flex-row-reverse xl:mb-24 shrink-0 grow-0 xl:justify-end  transition-all duration-500 selection:bg-blue-600 selection:text-white"
     >
       <Image
         src={project.previewImgURL}
         alt={`A preview image of ${project.title}`}
         width={527}
         height={400}
-        className="rounded-lg hidden xl:flex brightness-[.75] hover:brightness-100 transition-[filter] duration-300"
+        className="rounded-lg hidden xl:flex brightness-[.75] hover:brightness-100 transition-[filter] duration-300 "
+        onMouseEnter={() => setIsHoveringImage(true)}
+        onMouseLeave={() => setIsHoveringImage(false)}
         style={{ objectFit: 'cover' }}
       />
       {/* className="w-[60%] h-max bg-gray-950 px-8 py-6 rounded-lg outline-black outline outline-2 mb-24 shadow-2xl absolute top:0 translate-y-[50%] selection:bg-white selection:text-gray-950 " */}
 
       <div
-        className="w-full xl:w-[60%] h-max bg-gray-950 xl:px-8 xl:py-6 rounded-lg outline-black outline outline-2 xl:mb-24 shadow-2xl xl:absolute xl:transform xl:top-[50%] xl:translate-y-[-50%] selection:bg-white selection:text-gray-950 md:hover:bg-[rgb(5,15,28)] md:transition-all md:duration-300"
+        className="w-full xl:w-[60%] h-max bg-gray-950 xl:px-8 xl:py-6 rounded-lg outline-black outline outline-2 xl:mb-24 shadow-2xl xl:absolute xl:transform xl:top-[50%] xl:translate-y-[-50%] selection:bg-white selection:text-gray-950 md:hover:bg-[rgb(5,15,28)] md:transition-all md:duration-300 "
         style={{
           left: odd && isXlBreakpointMet ? 0 : undefined,
           right: odd && isXlBreakpointMet ? undefined : 0,
+          opacity: opaqueProjectCard ? '0.2' : undefined,
+          // opacity: isHoveringImage ? undefined : undefined,
         }}
       >
         <Image
@@ -52,14 +91,18 @@ export default function ProjectPreview({
           alt={`A preview image of ${project.title}`}
           width={527}
           height={400}
-          className="rounded-lg block h-auto w-auto xl:hidden"
+          className="rounded-lg block h-auto w-full xl:hidden"
           style={{ objectFit: 'cover' }}
         />
-        <div className="px-4 py-4 md:px-8 md:py-6 xl:px-0 xl:py-0 ">
+        <div className="px-4 py-4 md:px-8 md:py-6 xl:px-0 xl:py-0">
           <div className="cursor-pointer">
-            <h1 className="text-white text-xl md:text-2xl font-semibold mb-4">
+            <h1 className="text-white text-xl md:text-2xl font-semibold mb-1">
               {project.title}
             </h1>
+            <div
+              className="w-24 h-1 mb-4"
+              style={{ backgroundColor: project.projectAccentColor }}
+            ></div>
             <p className="hidden xl:block text-gray-200 mb-2 text-sm md:text-base">
               {project.summary}
             </p>

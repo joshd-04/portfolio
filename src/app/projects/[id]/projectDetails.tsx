@@ -15,12 +15,56 @@ function QuickLinkButton({
   href: Url;
   children: ReactNode;
 }) {
+  if (typeof children === 'string') {
+    if (children === 'github') {
+      return (
+        <Link
+          href={href}
+          className="px-2 py-2 hover:bg-black/20 rounded-lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/home/github.png"
+            alt="GitHub logo"
+            width={30}
+            height={30}
+          />
+        </Link>
+      );
+    }
+    if (children === 'website') {
+      return (
+        <Link
+          href={href}
+          className="px-2 py-2 hover:bg-black/20 rounded-lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/home/open in new.png"
+            alt="Open in new tab"
+            width={30}
+            height={30}
+          />
+        </Link>
+      );
+    }
+  }
   return (
     <Link
       href={href}
-      className="px-2 text-sm md:text-base md:px-4 bg-black/20 outline outline-2 "
+      className="px-2 text-sm md:text-base rounded-lg hover:bg-black/20 flex flex-row justify-center items-center gap-2"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {children}
+      <Image
+        src="/home/open in new.png"
+        alt="Open in new tab"
+        width={20}
+        height={20}
+      />
     </Link>
   );
 }
@@ -59,6 +103,12 @@ export default function ProjectDetails({ project }: { project: Project }) {
 
   settings = { ...settings, speed: isMdBreakpointMet ? 1000 : 600 };
 
+  const quickLinks = project.quickLinks.map((quickLink, i) => (
+    <QuickLinkButton key={i} href={quickLink.externalURL}>
+      {quickLink.title}
+    </QuickLinkButton>
+  ));
+
   return (
     <div className="text-white w-full mb-12 md:mb-20">
       <div className="w-[full] h-[20dvh] md:h-[30dvh] lg:h-[35dvh] mb-4 relative">
@@ -74,7 +124,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
           }}
         />
         <div className="w-[80%] h-full md:w-[60%] lg:w-[40%] place-self-center py-3 md:py-6 flex flex-col justify-end items-start ">
-          <h1 className="font-bold text-2xl md:text-5xl drop-shadow-[5px_5px_7px_rgb(0,0,0)] ">
+          <h1 className="font-bold text-2xl md:text-5xl drop-shadow-[5px_5px_7px_rgb(0,0,0)] selection:bg-blue-600">
             {project.title}
           </h1>
           <div
@@ -83,20 +133,15 @@ export default function ProjectDetails({ project }: { project: Project }) {
           ></div>
         </div>
       </div>
-      <div className="w-[80%] md:w-[60%] lg:w-[40%] place-self-center place-items-center">
+      <div className="w-[80%] md:w-[60%] lg:w-[40%] place-self-center place-items-start">
         <div className="w-full flex flex-row justify-between items-center mb-5">
           <p className="text-xs md:text-base text-gray-400">
             {project.projectDate.getDate().toString().padStart(2, '0')}/
             {(project.projectDate.getMonth() + 1).toString().padStart(2, '0')}/
             {project.projectDate.getFullYear()}
           </p>
-          <div className="flex flex-row gap-4">
-            {/* change the buttons for links  */}
-            {project.quickLinks.map((quickLink, i) => (
-              <QuickLinkButton key={i} href={quickLink.externalURL}>
-                {quickLink.title}
-              </QuickLinkButton>
-            ))}
+          <div className="flex flex-row gap-2 md:gap-2 scale-[70%] translate-x-[10%] md:translate-x-0 md:scale-100">
+            {quickLinks}
           </div>
         </div>
         <div className="w-full mb-4">
@@ -114,14 +159,14 @@ export default function ProjectDetails({ project }: { project: Project }) {
           </div>
         </div>
         {project.imageSliderURLs && project.imageSliderURLs.length > 0 && (
-          <div className="w-full">
+          <div className="w-full ">
             <h2 className="text-lg md:text-2xl font-bold mb-2">Images</h2>
             <Slider {...settings}>
               {project.imageSliderURLs.map((sliderImage, i) => (
                 <Image
                   src={sliderImage.imageURL}
                   alt={sliderImage.alt}
-                  className="w-full max-h-[10rem] md:max-h-[20rem] lg:max-h-[25rem] object-contain"
+                  className="w-[full] md:max-h-[20rem] lg:max-h-[25rem] object-contain"
                   height={sliderImage.height}
                   width={sliderImage.width}
                   key={i}
@@ -141,6 +186,9 @@ export default function ProjectDetails({ project }: { project: Project }) {
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex flex-row gap-2 md:gap-2 scale-[70%] translate-x-[10%] md:translate-x-0 md:scale-100">
+          {quickLinks}
         </div>
       </div>
     </div>

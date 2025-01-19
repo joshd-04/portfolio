@@ -15,7 +15,7 @@ export default function SkillTab({ skill }: { skill: Skill }) {
 
   return (
     <div
-      className={`text-sm md:text-base align-middle  pl-1 pr-2 py-1 rounded flex flex-row items-center gap-2 w-max`}
+      className={`text-sm md:text-base align-middle  pl-1 pr-2 py-1 rounded flex flex-row items-center gap-2 w-max cursor-default`}
       style={{
         backgroundColor: isHovering ? skill.color : '#111827',
       }}

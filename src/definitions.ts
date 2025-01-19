@@ -28,7 +28,8 @@ export interface UserProfile {
   firstName: string;
   lastName: string;
   profilePictureURL: string;
-  email: string;
+  emailUser: string;
+  emailDomain: string;
   githubURL: string;
   typewriterText: string[];
   whoAmIJSX: JSX.Element;
@@ -62,6 +63,10 @@ export interface ProjectDescriptionSection {
 }
 
 export interface ProjectQuickLink {
+  /** @description Use title = 'github' to display the github logo.
+   * Use title = 'website' to display an external link logo.
+   * Use any other title to display the text as-is.
+   */
   title: string;
   externalURL: string;
 }

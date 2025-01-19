@@ -11,7 +11,10 @@ const userProfile: UserProfile = {
     "Let's work together!",
     'Hire me :)',
   ],
-  email: 'joshdyal04@gmail.com',
+  // Split email into user and domain, then build the email at runtime
+  // This reduces chances of webscraping/bots
+  emailUser: 'joshdyal04',
+  emailDomain: 'gmail.com',
   githubURL: 'https://github.com/joshd-04',
   whoAmIJSX: (
     <div
@@ -59,7 +62,7 @@ const userProfile: UserProfile = {
     {
       personsName: 'Computer Science Teacher',
       personsImageURL: '/edit_these_assets/testimonials/pfp.png',
-      personsRole: 'Former GCSE Computer Science Teacher',
+      personsRole: 'GCSE Computer Science Teacher',
       numberOfStarsRating: 5,
       review:
         'Joshua is a very bright student, he has an incredible knowledge of Python and is proficient in using it to create all sorts of programs. He is inquisitive which is great for his learning and helps him make quick progress.',
@@ -67,7 +70,7 @@ const userProfile: UserProfile = {
     {
       personsName: 'Computer Science Teacher',
       personsImageURL: '/edit_these_assets/testimonials/pfp.png',
-      personsRole: 'Former GCSE Computer Science Teacher',
+      personsRole: 'GCSE Computer Science Teacher',
       numberOfStarsRating: 5,
       review:
         'Joshua is a very bright student, he has an incredible knowledge of Python and is proficient in using it to create all sorts of programs. He is inquisitive which is great for his learning and helps him make quick progress.',

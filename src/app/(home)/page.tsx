@@ -21,7 +21,7 @@ export default function Page() {
   return (
     <div className="h-max">
       <div className="pt-16 md:pt-24 min-h-max md:h-[100dvh] ">
-        <div className="flex flex-col items-center lg:flex-row lg:justify-center gap-20 lg:gap-30 ">
+        <div className="flex flex-col items-center xl:flex-row xl:justify-center gap-20 xl:gap-30 ">
           <div className="text-white w-[100dvw] place-items-center">
             <p className="text-gray-300 text-lg">Hi, my name is</p>
             <h1 className="text-7xl md:text-9xl uppercase font-bold">
@@ -59,7 +59,7 @@ export default function Page() {
           </div>
         </div>
         {/* downward pointing arrow bouncing */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <div className="place-self-center md:left-[50%] md:top-[95%] animate-bounce md:absolute z-40">
             <Image
               src="/home/down_arrow_white.png"
@@ -72,7 +72,11 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div ref={whoAmIRef} id="who-am-i" className="pt-0 lg:pt-12">
+      <div
+        ref={whoAmIRef}
+        id="who-am-i"
+        className="pt-0 md:pt-32 lg:pt-24 xl:pt-16"
+      >
         <WhoAmI />
       </div>
       <BestProjects />
