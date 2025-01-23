@@ -72,7 +72,9 @@ export default function Footer() {
               <Link href="/">Home</Link>
               <Link href="/#who-am-i">About me</Link>
               <Link href="/#featured-projects">Featured projects</Link>
-              <Link href="/#testimonials">Testimonials</Link>
+              {userProfile.testimonials.length > 0 && (
+                <Link href="/#testimonials">Testimonials</Link>
+              )}
               <Link href="/#contact">Contact</Link>
             </div>
           </div>

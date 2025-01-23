@@ -58,23 +58,24 @@ const userProfile: UserProfile = {
   //   "Hi, I'm an eager software engineer with heavy experience in front-end and back-end web development.",
   //   'I aspire to become a blockchain developer in the future, delivering next generation security in the projects and software I write.',
   // ],
-  testimonials: [
-    {
-      personsName: 'Computer Science Teacher',
-      personsImageURL: '/edit_these_assets/testimonials/pfp.png',
-      personsRole: 'GCSE Computer Science Teacher',
-      numberOfStarsRating: 5,
-      review:
-        'Joshua is a very bright student, he has an incredible knowledge of Python and is proficient in using it to create all sorts of programs. He is inquisitive which is great for his learning and helps him make quick progress.',
-    },
-    {
-      personsName: 'Computer Science Teacher',
-      personsImageURL: '/edit_these_assets/testimonials/pfp.png',
-      personsRole: 'GCSE Computer Science Teacher',
-      numberOfStarsRating: 5,
-      review:
-        'Joshua is a very bright student, he has an incredible knowledge of Python and is proficient in using it to create all sorts of programs. He is inquisitive which is great for his learning and helps him make quick progress.',
-    },
-  ],
+  testimonials: [],
+  // testimonials: [
+  //   {
+  //     personsName: 'Computer Science Teacher',
+  //     personsImageURL: '/edit_these_assets/testimonials/pfp.png',
+  //     personsRole: 'GCSE Computer Science Teacher',
+  //     numberOfStarsRating: 5,
+  //     review:
+  //       'Joshua is a very bright student, he has an incredible knowledge of Python and is proficient in using it to create all sorts of programs. He is inquisitive which is great for his learning and helps him make quick progress.',
+  //   },
+  //   {
+  //     personsName: 'Computer Science Teacher',
+  //     personsImageURL: '/edit_these_assets/testimonials/pfp.png',
+  //     personsRole: 'GCSE Computer Science Teacher',
+  //     numberOfStarsRating: 5,
+  //     review:
+  //       'Joshua is a very bright student, he has an incredible knowledge of Python and is proficient in using it to create all sorts of programs. He is inquisitive which is great for his learning and helps him make quick progress.',
+  //   },
+  // ],
 };
 export default userProfile;

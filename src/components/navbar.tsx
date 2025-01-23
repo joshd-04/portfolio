@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import userProfile from '@/edit_this_data/userProfile';
 
 function NavBarLink({
   href,
@@ -98,9 +99,11 @@ export default function NavBar() {
           <NavBarScrollButton id="featured-projects">
             Projects
           </NavBarScrollButton>
-          <NavBarScrollButton id="testimonials">
-            Testimonials
-          </NavBarScrollButton>
+          {userProfile.testimonials.length > 0 && (
+            <NavBarScrollButton id="testimonials">
+              Testimonials
+            </NavBarScrollButton>
+          )}
           <NavBarScrollButton id="contact">Contact</NavBarScrollButton>
         </>
       )}

@@ -52,7 +52,6 @@ export default function ProjectPreview({
     if (isHoveringImage === true) {
       const timer = setTimeout(() => {
         setOpaqueProjectCard(true);
-        console.log('TIMER DONE');
       }, 500);
       return () => clearTimeout(timer);
     } else {
