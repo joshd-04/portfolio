@@ -43,6 +43,7 @@ export interface Project {
   summary: string;
   skillsUsed: Skill[];
   previewImgURL: string;
+  /**@description Specify a URL string for a custom banner image. Undefined will use the preview image as the banner image */
   bannerImgURL: string | undefined;
   imageSliderURLs: ProjectSliderImage[];
   description: ProjectDescriptionSection[];

@@ -14,6 +14,7 @@ export default {
       },
       animation: {
         blink: 'blink 1.5s infinite',
+        conic_outline: 'conic_outline 1s linear infinite',
       },
       keyframes: {
         blink: {
@@ -21,6 +22,17 @@ export default {
           '45%': { opacity: '0' },
           '46%': { opacity: '0' },
           '90%': { opacity: '1' },
+        },
+        conic_outline: {
+          '0%': {
+            background: 'conic-gradient(from 0deg, red, blue)',
+          },
+          '50%': {
+            background: 'conic-gradient(from 100deg, blue, red)',
+          },
+          '100%': {
+            background: 'conic-gradient(from 0deg, red, blue)',
+          },
         },
       },
     },

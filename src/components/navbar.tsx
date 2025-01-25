@@ -15,7 +15,7 @@ function NavBarLink({
   return (
     <Link
       href={href}
-      className={`text-orange-500 hover:text-orange-400 hover:opacity-100 transition-all py-6 last-of-type:pr-0 first-of-type:pl-4 md:last-of-type:pr-24 selection:text-orange-500 text-sm md:text-lg`}
+      className={`text-orange-500 hover:text-orange-400 hover:opacity-100 transition-all py-6 last-of-type:mr-0 first-of-type:ml-4 md:last-of-type:mr-24 selection:text-orange-500 text-sm md:text-lg`}
     >
       {children}
     </Link>
@@ -54,7 +54,7 @@ function NavBarScrollButton({
 
   return (
     <button
-      className={`text-orange-500 hover:text-orange-400 hover:opacity-100 transition-all py-6 last-of-type:pr-0 first-of-type:pl-4 md:last-of-type:pr-24 selection:text-orange-500 text-sm md:text-lg `}
+      className={`text-orange-500 hover:text-orange-400 hover:opacity-100 transition-all py-6 last-of-type:mr-0 first-of-type:ml-4 md:last-of-type:mr-24 selection:text-orange-500 text-sm md:text-lg `}
       onClick={handleScroll}
     >
       {children}

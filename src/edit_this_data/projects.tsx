@@ -209,5 +209,141 @@ const projects: Project[] = [
     ],
     projectDate: new Date('07-31-2024'),
   },
+  {
+    id: 3,
+    title: 'ProActive',
+    projectAccentColor: '#2DC0E9',
+    summary:
+      "A desktop app that enables people hosting sports sessions to share their passion with the world, letting users participate in the event, bringing life into their community sports events. It's unique recommendation algorithm makes use of content-filtering to give you events you didn't even know you liked!",
+    skillsUsed: [
+      skills.Python,
+      skills.TKinter,
+      skills.Flask,
+      skills.PostMan,
+      skills.PostgreSQL,
+    ],
+    // left side for odd id, right side for even id
+    previewImgURL: `/edit_these_assets/projects/proactive/proactive left side.png`,
+    bannerImgURL: undefined,
+    imageSliderURLs: [
+      {
+        imageURL: '/edit_these_assets/projects/proactive/scroller/welcome.png',
+        alt: 'Welcome screen',
+        width: 1920,
+        height: 1080,
+      },
+      {
+        imageURL: '/edit_these_assets/projects/proactive/scroller/register.png',
+        alt: 'Registration screen',
+        width: 1920,
+        height: 1080,
+      },
+      {
+        imageURL: '/edit_these_assets/projects/proactive/scroller/home.png',
+        alt: 'Home screen',
+        width: 1920,
+        height: 1080,
+      },
+      {
+        imageURL: '/edit_these_assets/projects/proactive/scroller/search.png',
+        alt: 'Search screen',
+        width: 1920,
+        height: 1080,
+      },
+      {
+        imageURL:
+          '/edit_these_assets/projects/proactive/scroller/my events past mine.png',
+        alt: 'My events - previously created by me',
+        width: 1920,
+        height: 1080,
+      },
+      {
+        imageURL:
+          '/edit_these_assets/projects/proactive/scroller/my events past.png',
+        alt: 'My events - previously participated',
+        width: 1920,
+        height: 1080,
+      },
+    ],
+    description: [
+      {
+        sectionName: 'Important note',
+        body: (
+          <div className="flex flex-col justify-center items-start gap-4">
+            <p>
+              This project was made as part of school course work in a short
+              time frame, some features of the app are unfinished. The main
+              concept of the app was developed, and majority of the features.
+            </p>
+            <p>The GitHub readme expands on this more.</p>
+          </div>
+        ),
+      },
+      {
+        sectionName: 'The problem',
+        body: (
+          <div className="flex flex-col justify-center items-start gap-4">
+            <p>
+              We live in a world where eating processed foods is easier than
+              ever and is a major factor that contributes to being overweight or
+              out of shape. People have two options to tackle this constant
+              battle; going to a gym or playing sports. Playing sports is a
+              fantastic way to stay fit and healthy, make friends, stay happy
+              and some find it an enjoyable way to unleash their
+              competitiveness.
+            </p>
+            <p>
+              Anyone new to sports, or a particular sport, are likely to have
+              trouble finding someone to play with. Ideally, anyone should be
+              able to find a sports session, join it and have fun. Planning your
+              own events can be tedious, and even more-so when you are looking
+              for people to play with.
+            </p>
+          </div>
+        ),
+      },
+      {
+        sectionName: 'The (planned) solution',
+        body: (
+          <div className="flex flex-col gap-4 ">
+            <p>
+              To tackle this issue, I created a desktop app that allows anyone
+              to create an account, and find sports events running in their area
+            </p>
+            <p>
+              Using this app, people seeking to find sports events will be able
+              to browse events and edit their preferences. When an event is
+              found to the users liking, the user can choose to register their
+              participation. In essence, this means the event manager will be
+              able to see the users name on a list of total participants for the
+              event.
+            </p>
+            <p>
+              Based on previous event participation data and event browsing
+              history, a recommendation algorithm shows events to users that
+              they may be interested in. This algorithm is the fire of this
+              application, it has been designed to let users know about events
+              they are likely to like.
+            </p>
+            <p>
+              This algorithm is powered by event reviews and ratings, which
+              makes the app as user-friendly as possible, to encourage everyone
+              to play sports. Any user is able to run their own event, the app
+              captures the necessary information, and every other user can find
+              their event and participate, it&apos;s a win-win for everyone;
+              players get the sports, event hosts get the players
+            </p>
+          </div>
+        ),
+      },
+    ],
+    quickLinks: [
+      {
+        title: 'github',
+        externalURL: 'https://github.com/joshd-04/proactive',
+      },
+    ],
+    projectDate: new Date('01-25-2025'),
+  },
 ];
 export default projects;

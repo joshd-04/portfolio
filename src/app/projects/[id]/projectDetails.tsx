@@ -160,7 +160,9 @@ export default function ProjectDetails({ project }: { project: Project }) {
         </div>
         {project.imageSliderURLs && project.imageSliderURLs.length > 0 && (
           <div className="w-full ">
-            <h2 className="text-lg md:text-2xl font-bold mb-2">Images</h2>
+            <h2 className="text-lg md:text-2xl font-bold mb-2 md:mb-5">
+              Images
+            </h2>
             <Slider {...settings}>
               {project.imageSliderURLs.map((sliderImage, i) => (
                 <Image

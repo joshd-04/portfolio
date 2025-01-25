@@ -64,6 +64,7 @@ export default function ProjectPreview({
       href={`/projects/${project.id}`}
       className="relative h-auto w-auto flex flex-col xl:flex-row xl:odd:flex-row-reverse xl:mb-24 shrink-0 grow-0 xl:justify-end  transition-all duration-500 selection:bg-blue-600 selection:text-white"
     >
+      {/* <div className="hidden xl:flex relative before:absolute before:block  before:z-20 before:w-[calc(100%+20px)] before:h-[calc(100%+20px)] before:opacity-25 before:top-[-10px] before:left-[-10px] before:rounded-lg before:bg-conic before:from-red-500 before:to-transparent"> */}
       <Image
         src={project.previewImgURL}
         alt={`A preview image of ${project.title}`}
@@ -74,6 +75,7 @@ export default function ProjectPreview({
         onMouseLeave={() => setIsHoveringImage(false)}
         style={{ objectFit: 'cover' }}
       />
+      {/* </div> */}
       {/* className="w-[60%] h-max bg-gray-950 px-8 py-6 rounded-lg outline-black outline outline-2 mb-24 shadow-2xl absolute top:0 translate-y-[50%] selection:bg-white selection:text-gray-950 " */}
 
       <div
