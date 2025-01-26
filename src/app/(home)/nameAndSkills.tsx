@@ -3,7 +3,7 @@ import userProfile from '@/edit_this_data/userProfile';
 import Image from 'next/image';
 import BlinkingCursor from '@/components/blinkingCursor';
 import { Typewriter } from 'react-simple-typewriter';
-import { RefObject, useEffect } from 'react';
+import { RefObject } from 'react';
 
 export default function NameAndSkills({
   whoAmIRef,
