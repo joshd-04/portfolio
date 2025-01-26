@@ -23,7 +23,7 @@ export default function SkillTab({ skill }: { skill: Skill }) {
       onMouseLeave={() => setIsHovering(false)}
     >
       <div
-        className="relative w-1.5 h-full my-2 rounded-sm"
+        className="relative w-1.5 h-full my-2 rounded-sm "
         style={{
           backgroundColor: isHovering ? '#111827' : skill.color,
         }}

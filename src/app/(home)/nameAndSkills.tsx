@@ -18,7 +18,7 @@ export default function NameAndSkills({
   return (
     // <div className="pt-16 md:pt-24 min-h-max md:h-[100dvh] flex flex-col gap-16">
     <div className="pt-16 md:pt-24 min-h-max md:h-[100dvh] flex flex-col justify-between">
-      <div className="flex flex-col items-center xl:flex-row xl:justify-center gap-20 xl:gap-30 lg:px-16 xl:px-24 2xl:px-36 bg-blue-500">
+      <div className="flex flex-col items-center xl:flex-row xl:justify-center gap-20 xl:gap-30 lg:px-16 xl:px-24 2xl:px-36 ">
         <div className="text-white w-[100dvw] flex flex-col justify-center items-center">
           <p className="text-gray-300 text-lg">Hi, my name is</p>
           <h1 className="text-7xl md:text-9xl uppercase font-bold">
@@ -56,7 +56,7 @@ export default function NameAndSkills({
         </div>
       </div>
       {/* downward pointing arrow bouncing */}
-      <div className="hidden xl:block bg-red-500 mx-auto">
+      <div className="hidden xl:block mx-auto">
         <div className=" md:left-[50%] md:top-[95%] animate-bounce md:absolute z-40">
           <Image
             src="/home/down_arrow_white.png"
