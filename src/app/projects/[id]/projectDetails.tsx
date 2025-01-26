@@ -15,6 +15,35 @@ function QuickLinkButton({
   href: Url;
   children: ReactNode;
 }) {
+  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
+  const [isMdBreakpointMet, setIsMdBreakpointMet] = useState<
+    boolean | undefined
+  >(undefined);
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    function handleResize(e: Event) {
+      if (e.target && typeof window !== 'undefined') {
+        const target = e.target as Window;
+        setWindowWidth(target.outerWidth);
+      }
+    }
+    if (windowWidth === undefined && typeof window !== 'undefined') {
+      setWindowWidth(window.screen.width);
+    }
+    if (typeof window !== 'undefined' && windowWidth !== undefined) {
+      window.addEventListener('resize', handleResize);
+
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, [windowWidth]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMdBreakpointMet(window.matchMedia('(min-width: 768px)').matches);
+    }
+  }, [windowWidth]);
+
   if (typeof children === 'string') {
     if (children === 'github') {
       return (
@@ -27,8 +56,8 @@ function QuickLinkButton({
           <Image
             src="/home/github.png"
             alt="GitHub logo"
-            width={30}
-            height={30}
+            width={isMdBreakpointMet ? 30 : 21}
+            height={isMdBreakpointMet ? 30 : 21}
           />
         </Link>
       );
@@ -44,8 +73,8 @@ function QuickLinkButton({
           <Image
             src="/home/open in new.png"
             alt="Open in new tab"
-            width={30}
-            height={30}
+            width={isMdBreakpointMet ? 30 : 21}
+            height={isMdBreakpointMet ? 30 : 21}
           />
         </Link>
       );
@@ -62,8 +91,8 @@ function QuickLinkButton({
       <Image
         src="/home/open in new.png"
         alt="Open in new tab"
-        width={20}
-        height={20}
+        width={isMdBreakpointMet ? 20 : 14}
+        height={isMdBreakpointMet ? 20 : 14}
       />
     </Link>
   );
@@ -140,9 +169,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
             {(project.projectDate.getMonth() + 1).toString().padStart(2, '0')}/
             {project.projectDate.getFullYear()}
           </p>
-          <div className="flex flex-row gap-2 md:gap-2 scale-[70%] translate-x-[10%] md:translate-x-0 md:scale-100">
-            {quickLinks}
-          </div>
+          <div className="flex flex-row gap-2">{quickLinks}</div>
         </div>
         <div className="w-full mb-4">
           <h2 className="text-lg md:text-2xl font-bold mb-2">
@@ -189,9 +216,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
             </div>
           ))}
         </div>
-        <div className="flex flex-row gap-2 md:gap-2 scale-[70%] translate-x-[10%] md:translate-x-0 md:scale-100">
-          {quickLinks}
-        </div>
+        <div className="flex flex-row gap-2">{quickLinks}</div>
       </div>
     </div>
   );
