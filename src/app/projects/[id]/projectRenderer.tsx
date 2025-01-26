@@ -42,9 +42,7 @@ export default function ProjectRenderer({ metadata }: { metadata: Metadata }) {
       {project ? (
         <ProjectDetails project={project} />
       ) : (
-        // <ProjectDetailsSkeleton  />
         <ProjectDetailsSkeleton />
-        // <h1>Loading</h1>
       )}
     </>
   );

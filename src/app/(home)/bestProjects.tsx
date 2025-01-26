@@ -4,7 +4,7 @@ import projects from '@/edit_this_data/projects';
 export default function BestProjects() {
   return (
     <div className="w-full" id="featured-projects">
-      <div className="w-[70dvw] md:w-[70dvw] max-w-[1000px] place-self-center mt-16 flex flex-col text-white">
+      <div className="w-[70dvw] md:w-[70dvw] max-w-[1000px] mx-auto mt-16 flex flex-col text-white">
         <div className="  mb-0 xl:mb-4 text-center xl:text-start">
           <h1 className="text-4xl font-bold mb-2">Featured projects</h1>
           <p className="font-light">

@@ -123,7 +123,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
               'linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)',
           }}
         />
-        <div className="w-[80%] h-full md:w-[60%] lg:w-[40%] place-self-center py-3 md:py-6 flex flex-col justify-end items-start ">
+        <div className="w-[80%] h-full md:w-[60%] lg:w-[40%] mx-auto py-3 md:py-6 flex flex-col justify-end items-start ">
           <h1 className="font-bold text-2xl md:text-5xl drop-shadow-[5px_5px_7px_rgb(0,0,0)] selection:bg-blue-600">
             {project.title}
           </h1>
@@ -133,7 +133,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
           ></div>
         </div>
       </div>
-      <div className="w-[80%] md:w-[60%] lg:w-[40%] place-self-center place-items-start">
+      <div className="w-[80%] md:w-[60%] lg:w-[40%] mx-auto place-items-start">
         <div className="w-full flex flex-row justify-between items-center mb-5">
           <p className="text-xs md:text-base text-gray-400">
             {project.projectDate.getDate().toString().padStart(2, '0')}/

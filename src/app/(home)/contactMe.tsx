@@ -23,7 +23,7 @@ function CopyEmail() {
   }, [isCooldownActive]);
   return (
     <div className="w-full">
-      <div className="w-auto h-12 p-1 bg-black/20 rounded-md flex flex-row gap-2 text-white mt-4 md:mt-6 place-self-center">
+      <div className="w-min h-12 p-1 bg-black/20 rounded-md flex flex-row gap-2 text-white mt-4 md:mt-6 mx-auto">
         <div className="w-max h-full bg-black/60 outline outline-1 outline-black rounded-md px-4 lg:px-6 flex flex-col justify-center items-center selection:bg-blue-600">
           <p className="text-xs md:text-base">joshdyal04@gmail.com</p>
         </div>
@@ -41,7 +41,7 @@ function CopyEmail() {
 export default function ContactMe() {
   return (
     <div id="contact" className="w-full bg-black/20 py-16">
-      <div className="w-full md:w-[70%] xl:w-[50%] place-self-center  flex flex-col flex-grow-0 justify-center items-center relative text-center gap-4">
+      <div className="w-full md:w-[70%] xl:w-[50%] mx-auto  flex flex-col flex-grow-0 justify-center items-center relative text-center gap-4">
         <h1 className="text-white text-4xl md:text-6xl font-bold mb-2 xl:mb-6">
           Get in touch
         </h1>

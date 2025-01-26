@@ -35,7 +35,7 @@ export default function Footer() {
 
   return (
     <div className="w-[100dvw] h-auto bg-black relative py-10 text-white text-sm selection:bg-blue-600 selection:text-white">
-      <div className="w-[80%] md:w-[50%] h-full place-self-center">
+      <div className="w-[80%] md:w-[50%] h-full mx-auto">
         <h1 className="text-base mb-2">
           I hope you enjoyed viewing this portfolio :)
         </h1>

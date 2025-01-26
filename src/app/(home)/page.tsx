@@ -21,8 +21,8 @@ export default function Page() {
   return (
     <div className="h-max">
       <div className="pt-16 md:pt-24 min-h-max md:h-[100dvh] ">
-        <div className="flex flex-col items-center xl:flex-row xl:justify-center gap-20 xl:gap-30 ">
-          <div className="text-white w-[100dvw] place-items-center">
+        <div className="flex flex-col items-center xl:flex-row xl:justify-center gap-20 xl:gap-30 xl:px-36">
+          <div className="text-white w-[100dvw] flex flex-col justify-center items-center">
             <p className="text-gray-300 text-lg">Hi, my name is</p>
             <h1 className="text-7xl md:text-9xl uppercase font-bold">
               {userProfile.firstName}
@@ -30,7 +30,7 @@ export default function Page() {
               {userProfile.lastName}
               <BlinkingCursor />
             </h1>
-            <h2 className="text-orange-500 text-xl md:text-3xl font-semibold pt-6 selection:text-orange-500 relative max-w-full place-self-center">
+            <h2 className="text-orange-500 text-xl md:text-3xl font-semibold pt-6 selection:text-orange-500 relative max-w-full mx-auto">
               <Typewriter
                 words={userProfile.typewriterText}
                 loop
@@ -49,18 +49,18 @@ export default function Page() {
           </p>
           <QuickButtons />
         </div> */}
-          <div className="w-[100dvw] h-[50dvh] flex flex-col justify-start align-middle items-center gap-4 lg:gap-0  ">
+          <div className="h-[50dvh] flex flex-col justify-start align-middle items-center gap-4 lg:gap-0">
             <p className="text-gray-300 text-lg md:text-2xl lg:text-lg mb-[-5rem] md:mb-4 text-center inline-block">
               These are my favourite tools
             </p>
-            <div className="w-full h-[50%] place-items-center ">
+            <div className="w-full h-[50%] place-items-center">
               <MasteryGraph />
             </div>
           </div>
         </div>
         {/* downward pointing arrow bouncing */}
         <div className="hidden xl:block">
-          <div className="place-self-center md:left-[50%] md:top-[95%] animate-bounce md:absolute z-40">
+          <div className="mx-auto md:left-[50%] md:top-[95%] animate-bounce md:absolute z-40">
             <Image
               src="/home/down_arrow_white.png"
               alt="Bouncing arrow pointing downwards"

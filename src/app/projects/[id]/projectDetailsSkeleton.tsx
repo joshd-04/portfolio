@@ -3,11 +3,11 @@ export default function ProjectDetailsSkeleton() {
     <div className="w-full mb-12 md:mb-20">
       <div className="w-[full] h-[20dvh] md:h-[30dvh]  mb-4 relative">
         <div className=" bg-gray-700 absolute top-0 left-0 w-full h-full object-cover blur-sm brightness-[0.35] z-[-10] mask-image-linear-gradient"></div>
-        <div className="w-[80%] h-full md:w-[60%] lg:w-[40%] place-self-center py-3 md:py-6 flex flex-col justify-end items-start">
+        <div className="w-[80%] h-full md:w-[60%] lg:w-[40%] mx-auto py-3 md:py-6 flex flex-col justify-end items-start">
           <h1 className="w-[60%] h-12  text-2xl md:text-5xl drop-shadow-[5px_5px_7px_rgb(0,0,0)] animate-pulse bg-slate-800 rounded-md"></h1>
         </div>
       </div>
-      <div className="w-[80%] md:w-[60%] lg:w-[40%] place-self-center place-items-center">
+      <div className="w-[80%] md:w-[60%] lg:w-[40%] mx-auto place-items-center">
         <div className="w-full flex flex-row justify-between items-center mb-5">
           <p className="animate-pulse bg-slate-800 w-28 h-6 rounded-md"></p>
           <div className="flex flex-row gap-2">
