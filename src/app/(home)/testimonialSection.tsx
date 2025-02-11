@@ -3,13 +3,14 @@
 import userProfile from '@/edit_this_data/userProfile';
 import { Testimonial } from '@/definitions';
 import Image from 'next/image';
-import { CSSProperties, Suspense, useEffect, useState } from 'react';
+import { CSSProperties, Suspense, useState } from 'react';
 
 import React from 'react';
 import Slider, { Settings } from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import useIsBreakpointMet from '@/hooks/useIsBreakpointMet';
 
 function Stars({
   numberOfStars,
@@ -40,35 +41,7 @@ interface CustomArrowProps {
 }
 
 export function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
-  const [isMdBreakpointMet, setIsMdBreakpointMet] = useState<
-    boolean | undefined
-  >(undefined);
-
-  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
-
-  useEffect(() => {
-    function handleResize(e: Event) {
-      if (e.target && typeof window !== 'undefined') {
-        const target = e.target as Window;
-        setWindowWidth(target.outerWidth);
-      }
-    }
-    if (windowWidth === undefined && typeof window !== 'undefined') {
-      setWindowWidth(window.screen.width);
-    }
-    if (typeof window !== 'undefined' && windowWidth !== undefined) {
-      window.addEventListener('resize', handleResize);
-
-      return () => window.removeEventListener('resize', handleResize);
-    }
-  }, [windowWidth]);
-
-  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-  useEffect(() => {
-    if (typeof windowWidth !== 'undefined' && windowWidth >= 768) {
-      setIsMdBreakpointMet(true);
-    } else setIsMdBreakpointMet(false);
-  }, [windowWidth]);
+  const isMdBreakpointMet = useIsBreakpointMet().medium;
 
   if (!isMdBreakpointMet)
     return (
@@ -77,7 +50,7 @@ export function CustomArrow({ style, onClick, leftOrRight }: CustomArrowProps) {
 
   return (
     <button
-      className="w-16 h-16 bg-black text-orange-500 z-20  rounded-full text-2xl font-extrabold hover:text-white hover:bg-gray-950 transition-all absolute top-[50%] translate-y-[-50%] right-0 scale-[0.5]  lg:scale-[1] shadow-2xl"
+      className="w-16 h-16 bg-slate-950 text-[#059DD9] z-20  rounded-full text-2xl font-extrabold hover:text-white hover:bg-gray-950 transition-all absolute top-[50%] translate-y-[-50%] right-0 scale-[0.5]  lg:scale-[1] shadow-2xl outline outline-1 outline-gray-700"
       style={{
         ...style,
         left: leftOrRight == 'left' ? '-5rem' : undefined,
@@ -98,20 +71,15 @@ function TestimonialCard({
   isMdBreakpointMet: boolean | undefined;
 }) {
   return (
-    <div
-      className="w-[90%] bg-gray-950 hover:bg-gray-950/90 transition-colors outline outline-2 outline-black m-2 place-self-center rounded-xl text-white flex flex-col justify-evenly items-center px-4 pt-6 pb-4 md:px-8 md:pt-12 md:pb-8 gap-2 md:gap-8 aspect-[86/37] "
-      // style={{
-      //   // transform: `translateX(-${1 * testimonialIndex}50%)`,
-      //   opacity: testimonialIndex === cardIndex ? '1' : '0.2',
-      // }}
-    >
+    // <div className="w-[90%] bg-gray-950 hover:bg-gray-950/90 transition-colors outline outline-2 outline-[#059DD9] my-2 mx-auto rounded-xl text-white flex flex-col justify-evenly items-center px-4 pt-6 pb-4 md:px-8 md:pt-12 md:pb-8 gap-2 md:gap-8 aspect-[86/37] ">
+    <div className="w-[90%] bg-gray-950 hover:bg-gray-950/90 transition-colors outline outline-2 outline-[#059DD9] my-2 mx-auto rounded-xl text-white flex flex-col justify-evenly items-center px-4 pt-6 pb-4 md:px-8 md:pt-12 md:pb-8 gap-2 md:gap-8 aspect-[86/37] ">
       <div className="z-10 drop-shadow-[0_0_5px_rgb(255,215,0)]">
         <Stars
           numberOfStars={testimonial.numberOfStarsRating}
           isMdBreakpointMet={isMdBreakpointMet}
         />
       </div>
-      <div className="place-items-center">
+      <div className="flex flex-col justify-center items-center">
         <Suspense fallback={<div className="w-[2.5] h-[2.5] bg-red-500"></div>}>
           <Image
             src="/home/singlequote.png"
@@ -149,16 +117,7 @@ function TestimonialCard({
 
 export default function TestimonialSection() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
-  const [isMdBreakpointMet, setIsMdBreakpointMet] = useState<
-    boolean | undefined
-  >(undefined);
-  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setIsMdBreakpointMet(window.matchMedia('(min-width: 768px)').matches);
-    }
-  }, []);
+  const isMdBreakpointMet = useIsBreakpointMet().medium;
 
   let settings: Settings = {
     dots: true,
@@ -168,12 +127,12 @@ export default function TestimonialSection() {
     autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    dotsClass: 'slick-dots ',
+    dotsClass: 'slick-dots',
     prevArrow: <CustomArrow leftOrRight="left" />,
     nextArrow: <CustomArrow leftOrRight="right" />,
     customPaging: (i: number) => (
       <div
-        className="w-2.5 h-2.5 rounded-full bg-orange-500  transition-all hover:bg-white mt-5 opacity-20 hover:opacity-100"
+        className="w-2.5 h-2.5 rounded-full bg-[#059DD9]  transition-all hover:bg-white mt-5 opacity-20 hover:opacity-100"
         style={{ opacity: i === testimonialIndex ? '1' : undefined }}
       ></div>
     ),
@@ -188,7 +147,7 @@ export default function TestimonialSection() {
   return (
     <div
       id="testimonials"
-      className="place-items-center align-middle my-16 w-full relative "
+      className="flex flex-col justify-center items-center align-middle mt-24 w-full relative"
     >
       <h1 className="text-3xl md:text-4xl text-white font-bold mb-2">
         Still not convinced?
@@ -202,7 +161,7 @@ export default function TestimonialSection() {
       </h2>
 
       <div className="w-full mt-12 flex flex-row justify-center items-center gap-8">
-        <div className="place-self-center relative w-[80%] lg:w-[50%] drop-shadow-2xl">
+        <div className="relative w-[80%] lg:w-[50%] drop-shadow-2xl text-white ">
           <Slider {...settings}>
             {userProfile.testimonials.map((t, i) => {
               return (

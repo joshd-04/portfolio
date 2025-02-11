@@ -1,10 +1,13 @@
 'use client';
 
 import { Project } from '@/definitions';
-import SkillTab from './skillsTab';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import useIsBreakpointMet from '@/hooks/useIsBreakpointMet';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/light.css';
 
 export default function ProjectPreview({
   project,
@@ -14,39 +17,12 @@ export default function ProjectPreview({
   i: number;
 }) {
   const odd = i % 2 != 0;
-  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-  const [isXlBreakpointMet, setIsXlBreakpointMet] = useState<
-    boolean | undefined
-  >(undefined);
+
+  const { medium: isMdBreakpointMet, xl: isXlBreakpointMet } =
+    useIsBreakpointMet();
   const [isShowFullDescription, setIsShowFullDescription] = useState(false);
   const [isHoveringImage, setIsHoveringImage] = useState(false);
   const [opaqueProjectCard, setOpaqueProjectCard] = useState(false);
-
-  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
-
-  useEffect(() => {
-    function handleResize(e: Event) {
-      if (e.target && typeof window !== 'undefined') {
-        const target = e.target as Window;
-        setWindowWidth(target.outerWidth);
-      }
-    }
-    if (windowWidth === undefined && typeof window !== 'undefined') {
-      setWindowWidth(window.screen.width);
-    }
-    if (typeof window !== 'undefined' && windowWidth !== undefined) {
-      window.addEventListener('resize', handleResize);
-
-      return () => window.removeEventListener('resize', handleResize);
-    }
-  }, [windowWidth]);
-
-  // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536
-  useEffect(() => {
-    if (typeof windowWidth !== 'undefined' && windowWidth >= 1280) {
-      setIsXlBreakpointMet(true);
-    } else setIsXlBreakpointMet(false);
-  }, [windowWidth]);
 
   useEffect(() => {
     if (isHoveringImage === true) {
@@ -79,7 +55,7 @@ export default function ProjectPreview({
       {/* className="w-[60%] h-max bg-gray-950 px-8 py-6 rounded-lg outline-black outline outline-2 mb-24 shadow-2xl absolute top:0 translate-y-[50%] selection:bg-white selection:text-gray-950 " */}
 
       <div
-        className="w-full xl:w-[60%] h-max bg-gray-950 xl:px-8 xl:py-6 rounded-lg outline-black outline outline-2 xl:mb-24 shadow-2xl xl:absolute xl:transform xl:top-[50%] xl:translate-y-[-50%] selection:bg-white selection:text-gray-950 md:hover:bg-[rgb(5,15,28)] md:transition-all md:duration-300 "
+        className="w-full  mx-auto xl:mx-0 max-w-[500px] xl:max-w-none xl:w-[60%] h-max bg-gray-950 xl:px-8 xl:py-6 rounded-lg xl:mb-24 shadow-2xl xl:absolute xl:transform xl:top-[50%] xl:translate-y-[-50%] selection:bg-white selection:text-gray-950 md:hover:bg-[rgb(5,15,28)] md:transition-all md:duration-300 outline outline-2 outline-gray-700"
         style={{
           left: odd && isXlBreakpointMet ? 0 : undefined,
           right: odd && isXlBreakpointMet ? undefined : 0,
@@ -111,7 +87,7 @@ export default function ProjectPreview({
               <p className="block xl:hidden text-gray-200 mb-2 text-sm md:text-base ">
                 {project.summary}{' '}
                 <button
-                  className="font-semibold hover:underline text-orange-500"
+                  className="font-semibold hover:underline text-[#059DD9]"
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -125,7 +101,7 @@ export default function ProjectPreview({
               <p className="block xl:hidden text-gray-200 mb-2 text-sm md:text-base ">
                 {project.summary.slice(0, 70)}...{' '}
                 <button
-                  className="font-semibold hover:underline text-orange-500"
+                  className="font-semibold hover:underline text-[#059DD9]"
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -137,10 +113,25 @@ export default function ProjectPreview({
               </p>
             )}
           </div>
-          <div className="flex flex-row flex-wrap gap-x-2 gap-y-1 w-full py-2">
-            {project.skillsUsed.map((skill, i) => (
-              <SkillTab skill={skill} key={i} />
-            ))}
+          <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-4 gap-y-2 w-max py-1">
+            {project.skillsUsed.map((skill, i) => {
+              return skill.smallImage ? (
+                <Tippy
+                  key={i}
+                  content={skill.value}
+                  theme="light"
+                  placement="bottom"
+                >
+                  <Image
+                    src={skill.smallImage.src}
+                    width={isMdBreakpointMet ? 30 : 20}
+                    height={isMdBreakpointMet ? 30 : 20}
+                    alt={skill.value}
+                    className="object-contain"
+                  />
+                </Tippy>
+              ) : null;
+            })}
           </div>
         </div>
       </div>

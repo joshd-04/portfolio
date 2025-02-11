@@ -17,12 +17,12 @@ interface IGraphHoverContext {
 }
 
 const GraphHoverContext = createContext<IGraphHoverContext | null>(null);
-export default function MasteryGraph() {
+export default function MasteryGraph({ width }: { width: number }) {
   const [isAnyHovering, setIsAnyHovering] = useState(false);
 
   return (
     <div
-      className={`bg-black w-[44rem] pb-8 relative z-0 rounded-xl py-4 px-6 shadow-2xl selection:bg-blue-600 selection:text-black   my-[-4rem] md:my-0 scale-[0.5] sm:scale-[0.7] md:scale-[1]`}
+      className={`bg-gray-950 w-[44rem] pb-8 relative z-0 rounded-xl py-4 px-6 shadow-2xl selection:bg-blue-600 selection:text-black   my-[-4rem] md:my-0 text-base`}
       onMouseEnter={() => setIsAnyHovering(true)}
       onMouseLeave={() => setIsAnyHovering(false)}
     >
@@ -51,7 +51,7 @@ function MasteryVisuals({ mastery }: { mastery: Mastery }) {
       onMouseLeave={() => setIsHovering(false)}
     >
       <h1
-        className="text-white font-semibold text-xl bg-black w-max z-20 relative mb-1"
+        className="text-white font-semibold text-xl bg-gray-950 w-max z-20 relative mb-1"
         style={{
           filter: isHovering
             ? 'brightness(1)'
@@ -62,7 +62,7 @@ function MasteryVisuals({ mastery }: { mastery: Mastery }) {
       >
         {mastery.sector}
       </h1>
-      <div className="">
+      <div className="flex flex-col justify-center items-start">
         {mastery.competencies.map((comp, i) => (
           <CompRow competency={comp} key={i} />
         ))}
@@ -97,12 +97,12 @@ function CompRow({ competency }: { competency: Competency }) {
 
   return (
     <div
-      className="align-middle pb-2 z-20 text-xl sm:text-base md:text-base "
+      className="pb-2 z-20 text-xl sm:text-base md:text-base "
       onMouseEnter={activeStates}
       onMouseLeave={deactiveStates}
     >
       <p
-        className="w-36 bg-white/5 text-white inline-block align-top z-20 rounded pl-2"
+        className="w-36 bg-white/5 text-white text-start inline-block align-top z-20 rounded pl-2 font-normal"
         style={{
           opacity: isAnyHovering && !isHovering ? '0.5' : undefined,
         }}
@@ -137,7 +137,7 @@ function GraphDivider({
       className={`w-0.5 bg-gray-500/50 h-[95%] absolute  z-10`}
       style={{ left: `${leftRem}rem` }}
     >
-      <p className="absolute bottom-0 text-end translate-x-[-50%]  bg-black w-max font-semibold text-white">
+      <p className="absolute bottom-0 text-end translate-x-[-50%]  bg-gray-950 w-max font-semibold text-white">
         {children}
       </p>
     </div>

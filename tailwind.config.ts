@@ -14,7 +14,8 @@ export default {
       },
       animation: {
         blink: 'blink 1.5s infinite',
-        conic_outline: 'conic_outline 1s linear infinite',
+
+        marquee: 'marquee 15s linear infinite',
       },
       keyframes: {
         blink: {
@@ -23,16 +24,10 @@ export default {
           '46%': { opacity: '0' },
           '90%': { opacity: '1' },
         },
-        conic_outline: {
-          '0%': {
-            background: 'conic-gradient(from 0deg, red, blue)',
-          },
-          '50%': {
-            background: 'conic-gradient(from 100deg, blue, red)',
-          },
-          '100%': {
-            background: 'conic-gradient(from 0deg, red, blue)',
-          },
+
+        marquee: {
+          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '100%': { transform: 'translate3d(-50%, 0, 0)' },
         },
       },
     },

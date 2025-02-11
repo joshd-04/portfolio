@@ -107,7 +107,10 @@ const projects: Project[] = [
       },
     ],
     quickLinks: [
-      { title: 'github', externalURL: 'https://github.com/joshd-04/portfolio' },
+      {
+        customImageUrl: '/home/github.png',
+        externalURL: 'https://github.com/joshd-04/portfolio',
+      },
     ],
     projectDate: new Date('01-16-2025'),
   },
@@ -202,10 +205,10 @@ const projects: Project[] = [
     ],
     quickLinks: [
       {
-        title: 'github',
+        customImageUrl: '/home/github.png',
         externalURL: 'https://github.com/joshd-04/timed-todo-list',
       },
-      { title: 'website', externalURL: 'https://timed-todo.netlify.app' },
+      { text: 'website', externalURL: 'https://timed-todo.netlify.app' },
     ],
     projectDate: new Date('07-31-2024'),
   },
@@ -339,7 +342,7 @@ const projects: Project[] = [
     ],
     quickLinks: [
       {
-        title: 'github',
+        customImageUrl: '/home/github.png',
         externalURL: 'https://github.com/joshd-04/proactive',
       },
     ],

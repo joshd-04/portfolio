@@ -1,3 +1,4 @@
+import BlueGradientText from '@/components/blueGradientText';
 import userProfile from '@/edit_this_data/userProfile';
 import { useEffect, useState } from 'react';
 
@@ -23,12 +24,12 @@ function CopyEmail() {
   }, [isCooldownActive]);
   return (
     <div className="w-full">
-      <div className="w-min h-12 p-1 bg-black/20 rounded-md flex flex-row gap-2 text-white mt-4 md:mt-6 mx-auto">
-        <div className="w-max h-full bg-black/60 outline outline-1 outline-black rounded-md px-4 lg:px-6 flex flex-col justify-center items-center selection:bg-blue-600">
+      <div className="w-min h-12 p-1 bg-gray-950/60 rounded-md flex flex-row gap-2 text-white mt-4 md:mt-6 mx-auto">
+        <div className="w-max h-full bg-gray-950/60 outline outline-1 outline-gray-900 rounded-md px-4 lg:px-6 flex flex-col justify-center items-center selection:bg-blue-600">
           <p className="text-xs md:text-base">joshdyal04@gmail.com</p>
         </div>
         <button
-          className="h-full w-auto bg-black px-4 lg:px-6 text-sm md:text-lg rounded-md hover:bg-gray-950 text-orange-500 hover:text-white transition-all selection:bg-blue-600 selection:text-white"
+          className="h-full w-auto bg-gray-950 px-4 lg:px-6 text-sm md:text-lg  outline outline-1 outline-black rounded-md hover:bg-slate-900 text-[#059DD9] hover:text-white transition-all selection:bg-blue-600 selection:text-white"
           onClick={handleCopyEmail}
         >
           {buttonText}
@@ -40,16 +41,23 @@ function CopyEmail() {
 
 export default function ContactMe() {
   return (
-    <div id="contact" className="w-full bg-black/20 py-16">
+    <div id="contact" className="w-full bg-black/20 py-16 mt-24">
       <div className="w-full md:w-[70%] xl:w-[50%] mx-auto  flex flex-col flex-grow-0 justify-center items-center relative text-center gap-4">
-        <h1 className="text-white text-4xl md:text-6xl font-bold mb-2 xl:mb-6">
-          Get in touch
-        </h1>
-        <h2 className="text-gray-300 text-base md:text-lg font-light w-[80%] ">
+        <div className="text-white  font-black mb-2 xl:mb-6 flex flex-col gap-4">
+          <h1 className="text-4xl md:text-6xl">
+            Let&apos;s{' '}
+            <BlueGradientText style={{ fontWeight: 900 }}>
+              talk
+            </BlueGradientText>
+            !
+          </h1>
+          <h2 className="text-2xl md:text-4xl">Get in touch</h2>
+        </div>
+        <p className="text-gray-300 text-base md:text-lg font-light w-[80%] ">
           Got a project you&apos;d like me to work on? Or just want to say
           hello? Feel free to send me an email 😊 There&apos;s no form here —
           just use your favorite email app!
-        </h2>
+        </p>
         <CopyEmail />
       </div>
     </div>

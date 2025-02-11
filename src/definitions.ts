@@ -1,8 +1,11 @@
+import { StaticImageData } from 'next/image';
 import { JSX } from 'react';
 
 export interface Skill {
   value: string;
   color: string;
+  bigImage: StaticImageData | null;
+  smallImage: StaticImageData | null;
 }
 
 export interface SkillByValue {
@@ -24,6 +27,13 @@ export interface Competency {
   level: number;
 }
 
+export interface ProfileStat {
+  value: string;
+  /** @description Maximum length of 34 before string gets truncated!
+   */
+  name: string;
+}
+
 export interface UserProfile {
   firstName: string;
   lastName: string;
@@ -31,6 +41,11 @@ export interface UserProfile {
   emailUser: string;
   emailDomain: string;
   githubURL: string;
+  linkedInURL: string;
+  resumeURL: string;
+  toolsIAmExperiencedWith: Skill[];
+  threeSkillsIWantToImprove: [Skill, Skill, Skill];
+  stats: [ProfileStat, ProfileStat, ProfileStat];
   typewriterText: string[];
   whoAmIJSX: JSX.Element;
   testimonials: Testimonial[];
@@ -64,11 +79,8 @@ export interface ProjectDescriptionSection {
 }
 
 export interface ProjectQuickLink {
-  /** @description Use title = 'github' to display the github logo.
-   * Use title = 'website' to display an external link logo.
-   * Use any other title to display the text as-is.
-   */
-  title: string;
+  text?: string | undefined;
+  customImageUrl?: string | undefined;
   externalURL: string;
 }
 
