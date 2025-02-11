@@ -15,7 +15,7 @@ export default {
       animation: {
         blink: 'blink 1.5s infinite',
 
-        marquee: 'marquee 15s linear infinite',
+        marquees: 'marquee 15s linear infinite',
       },
       keyframes: {
         blink: {
