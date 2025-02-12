@@ -113,7 +113,7 @@ export default function ProjectPreview({
               </p>
             )}
           </div>
-          <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-4 gap-y-2 w-max py-1">
+          <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-4 gap-y-2 w-auto py-1">
             {project.skillsUsed.map((skill, i) => {
               return skill.smallImage ? (
                 <Tippy
@@ -128,6 +128,7 @@ export default function ProjectPreview({
                     height={isMdBreakpointMet ? 30 : 20}
                     alt={skill.value}
                     className="object-contain"
+                    onClick={(e) => e.preventDefault()}
                   />
                 </Tippy>
               ) : null;

@@ -208,7 +208,7 @@ const projects: Project[] = [
         customImageUrl: '/home/github.png',
         externalURL: 'https://github.com/joshd-04/timed-todo-list',
       },
-      { text: 'website', externalURL: 'https://timed-todo.netlify.app' },
+      { text: 'Website', externalURL: 'https://timed-todo.netlify.app' },
     ],
     projectDate: new Date('07-31-2024'),
   },

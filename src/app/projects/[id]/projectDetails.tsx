@@ -58,6 +58,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
             maskImage:
               'linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)',
           }}
+          priority
         />
         <div className="w-[80%] h-full md:w-[60%] lg:w-[40%] mx-auto py-3 md:py-6 flex flex-col justify-end items-start ">
           <h1 className="font-bold text-2xl md:text-5xl drop-shadow-[5px_5px_7px_rgb(0,0,0)] selection:bg-blue-600">
