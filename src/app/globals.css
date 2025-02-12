@@ -20,3 +20,53 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } 
 */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #059dd9;
+
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+/* 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+#who-am-i-container::after,
+#who-am-i-container::before {
+  content: '';
+  position: absolute;
+  height: calc(100% + 2rem);
+  width: calc(100% + 2rem);
+  background-image: conic-gradient(from var(--angle), transparent 80%, #059dd9);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 0.75rem;
+  animation: 6s conic-spin linear infinite;
+}
+#who-am-i-container::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes conic-spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+} */

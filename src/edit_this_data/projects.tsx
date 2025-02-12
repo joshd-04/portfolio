@@ -19,7 +19,7 @@ const projects: Project[] = [
       skills.GitHub,
     ],
     // left side for odd id, right side for even id
-    previewImgURL: `/edit_these_assets/projects/custom portfolio/custom portfolio left side.png`,
+    previewImgURL: `/edit_these_assets/projects/custom portfolio/custom portfolio left side v2.png`,
     bannerImgURL: undefined,
     imageSliderURLs: [
       {
@@ -107,7 +107,10 @@ const projects: Project[] = [
       },
     ],
     quickLinks: [
-      { title: 'github', externalURL: 'https://github.com/joshd-04/portfolio' },
+      {
+        customImageUrl: '/home/github.png',
+        externalURL: 'https://github.com/joshd-04/portfolio',
+      },
     ],
     projectDate: new Date('01-16-2025'),
   },
@@ -202,10 +205,10 @@ const projects: Project[] = [
     ],
     quickLinks: [
       {
-        title: 'github',
+        customImageUrl: '/home/github.png',
         externalURL: 'https://github.com/joshd-04/timed-todo-list',
       },
-      { title: 'website', externalURL: 'https://timed-todo.netlify.app' },
+      { text: 'Website', externalURL: 'https://timed-todo.netlify.app' },
     ],
     projectDate: new Date('07-31-2024'),
   },
@@ -339,7 +342,7 @@ const projects: Project[] = [
     ],
     quickLinks: [
       {
-        title: 'github',
+        customImageUrl: '/home/github.png',
         externalURL: 'https://github.com/joshd-04/proactive',
       },
     ],

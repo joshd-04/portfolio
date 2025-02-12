@@ -3,6 +3,7 @@ import './globals.css';
 import NavBar from '@/components/navbar';
 import Footer from '@/components/footer';
 import { Inter } from 'next/font/google';
+import MouseLight from '@/components/mouseLight';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,9 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/edit_these_assets/me/me.png" sizes="any" />
+      </head>
       <body
-        className={`bg-gradient-to-r from-slate-900 to-slate-800 overflow-x-hidden ${inter.className} selection:bg-black/80 selection:text-white `}
+        className={`bg-black overflow-x-hidden selection:bg-blue-500/80 selection:text-white ${inter.className}`}
       >
+        <MouseLight />
         <NavBar />
         {children}
         <Footer />

@@ -1,5 +1,6 @@
 'use client';
 import { UserProfile } from '@/definitions';
+import skills from './skills';
 
 const userProfile: UserProfile = {
   firstName: 'Josh',
@@ -16,14 +17,37 @@ const userProfile: UserProfile = {
   emailUser: 'joshdyal04',
   emailDomain: 'gmail.com',
   githubURL: 'https://github.com/joshd-04',
+  linkedInURL: 'https://www.linkedin.com/in/josh-dyal/',
+  resumeURL:
+    'https://drive.google.com/file/d/1YpNfIuq95NA3KPDALAaFChoGPlpZc9Pl/view',
+  toolsIAmExperiencedWith: [
+    skills.HTML,
+    skills.CSS,
+    skills.JavaScript,
+    skills.TypeScript,
+    skills.React,
+    skills.NextJS,
+    skills.TailwindCSS,
+    skills.Netlify,
+    skills.Vercel,
+    skills.Python,
+    skills.Pygame,
+    skills.Flask,
+    skills.SQL,
+    skills.PostgreSQL,
+    skills.PostMan,
+    skills.VSCode,
+    skills.GitHub,
+  ],
+  threeSkillsIWantToImprove: [skills.NodeJS, skills.Git, skills.CSharp],
+  stats: [
+    { value: '9+', name: 'GitHub Repositories & Projects' },
+    { value: '7+', name: 'Online Courses Completed' },
+    { value: 'A*', name: 'In Computer Science Coding Project' },
+  ],
+
   whoAmIJSX: (
-    <div
-      className="flex flex-col gap-2 md:gap-4"
-      style={{
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-      }}
-    >
+    <div className="flex flex-col gap-2 md:gap-4">
       <p className="">
         I&apos;m an eager software engineer with most my experience being in
         full-stack web development.
