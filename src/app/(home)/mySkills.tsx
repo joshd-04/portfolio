@@ -3,13 +3,11 @@ import SkillsMarquee from '@/components/skillsMarquee';
 import Image from 'next/image';
 import BlueGradientText from '@/components/blueGradientText';
 import userProfile from '@/edit_this_data/userProfile';
-import useIsBreakpointMet from '@/hooks/useIsBreakpointMet';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
 
 export default function MySkills() {
-  const isMdBreakpointMet = useIsBreakpointMet().medium;
   return (
     <div
       id="my-skills"
@@ -112,10 +110,7 @@ export default function MySkills() {
         </div>
       </div>
       {/* downward pointing arrow bouncing */}
-      <DownwardBouncingArrow
-        elementId="who-am-i"
-        verticalScrollPadding={isMdBreakpointMet ? 100 : 150}
-      />
+      <DownwardBouncingArrow elementId="featured-projects" />
     </div>
   );
 }

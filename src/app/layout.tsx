@@ -28,7 +28,7 @@ export default function RootLayout({
         <link rel="icon" href="/edit_these_assets/me/me.png" sizes="any" />
       </head>
       <body
-        className={`bg-black overflow-x-hidden  selection:bg-blue-500/80 selection:text-white ${inter.className}`}
+        className={`bg-black overflow-x-hidden selection:bg-blue-500/80 selection:text-white ${inter.className}`}
       >
         <MouseLight />
         <NavBar />

@@ -1,5 +1,4 @@
 import BlueGradientText from '@/components/blueGradientText';
-import DownwardBouncingArrow from '@/components/downwardBouncingArrow';
 import userProfile from '@/edit_this_data/userProfile';
 import Image from 'next/image';
 import React from 'react';
@@ -9,7 +8,7 @@ const roboto = Roboto({ weight: ['300'], subsets: ['latin'] });
 
 export default function WhoAmI() {
   return (
-    <div className="w-full  mt-48" id="who-am-i">
+    <div className="w-full  mt-28" id="who-am-i">
       <div className="mt-0 md:mt-32 lg:mt-24 xl:mt-16 flex flex-col justify-center items-center min-h-[80dvh] h-auto relative bottom-[50px] ">
         {/* <div
           id="who-am-i-container"
@@ -45,9 +44,6 @@ export default function WhoAmI() {
           </div>
         </div>
       </div>
-
-      {/* downward pointing arrow bouncing */}
-      <DownwardBouncingArrow elementId="featured-projects" />
     </div>
   );
 }

@@ -96,10 +96,10 @@ export default function NavBar() {
       ) : (
         <>
           <NavBarScrollButton id="my-skills-2">My journey</NavBarScrollButton>
-          <NavBarScrollButton id="who-am-i">About me</NavBarScrollButton>
           <NavBarScrollButton id="featured-projects">
             Projects
           </NavBarScrollButton>
+          <NavBarScrollButton id="who-am-i">About me</NavBarScrollButton>
           {userProfile.testimonials.length > 0 && (
             <NavBarScrollButton id="testimonials">
               Testimonials

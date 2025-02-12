@@ -16,10 +16,10 @@ export default function Page() {
         <MySkills />
       </div>
       <div>
-        <WhoAmI />
+        <BestProjects />
       </div>
       <div>
-        <BestProjects />
+        <WhoAmI />
       </div>
       <div>
         <TestimonialSection />

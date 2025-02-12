@@ -19,7 +19,7 @@ const projects: Project[] = [
       skills.GitHub,
     ],
     // left side for odd id, right side for even id
-    previewImgURL: `/edit_these_assets/projects/custom portfolio/custom portfolio left side.png`,
+    previewImgURL: `/edit_these_assets/projects/custom portfolio/custom portfolio left side v2.png`,
     bannerImgURL: undefined,
     imageSliderURLs: [
       {
