@@ -19,7 +19,7 @@ const userProfile: UserProfile = {
   githubURL: 'https://github.com/joshd-04',
   linkedInURL: 'https://www.linkedin.com/in/josh-dyal/',
   resumeURL:
-    'https://drive.google.com/file/d/1YpNfIuq95NA3KPDALAaFChoGPlpZc9Pl/view',
+    'https://drive.google.com/file/d/1BePAGgsFgqO2wCwkfc49almtCd1DWPWSKmXUo4XVF00/view',
   toolsIAmExperiencedWith: [
     skills.HTML,
     skills.CSS,
